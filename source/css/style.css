@@ -51,7 +51,7 @@ h3 {
   text-align: center;
   color:#FEF5E5;
 }
-h4{
+h4, .content__text > h1{
   font-size: 18px;
   font-family: "Montserrat-Medium";
   text-transform: uppercase;
@@ -61,6 +61,7 @@ span {
   font-family: "Montserrat-Light";
   display: block;
   letter-spacing: 1px;
+  line-height: 24px;
 }
 p {
   font-family: "Lato-Light";
@@ -91,7 +92,7 @@ button:hover {
   margin: 0 auto;
 }
 
-/* Header */
+/* Header main*/
 .header{
   background: url(../img/main_pic.jpg);
   background-size: cover;
@@ -185,19 +186,22 @@ button:hover {
   background-size: auto;
   background-position: center center;
 }
+
+
 /* Toys */
+.tagline {
+  display: block;
+  margin: 100px auto;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+}
 .item-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
-}
-.item__tagline {
-  font-size: 24px;
-  text-align: center;
-  margin: 100px 0;
-  line-height: 36px;
 }
 .item-card__lg {
   width: 580px;
@@ -420,4 +424,99 @@ h4 > span {
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center center;
+}
+
+
+/* Header item card */
+.header-item li > a, .header-item li:hover > a{
+  color: #25315A;
+}
+.header-item li:hover > a{
+  color: #25315A;
+}
+
+.header-item--smedia li> a{
+  background: url(../img/Insta_hv.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center center;
+}
+
+.header-item--smedia li:nth-child(2)> a{
+  background: url(../img/vk_hv.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center center;
+}
+.header-item--smedia li:nth-child(3) > a{
+  background: url(../img/Fb_hv.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center center;
+}
+
+/* Content item card */
+.item {
+  display: flex;
+  justify-content: space-between;
+  height: 570px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.item__img {
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  /* box-sizing: border-box; */
+}
+.item__img--main > img {
+  width: 580px;
+  height: 450px;
+  border-radius: 5px;
+  object-fit: fill
+}
+.item__img--mini {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.item__img--mini > img {
+  width: 120px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.item__text,.item__text--header, .item__text--descrip, .item__text--info  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.item__text{
+  width: 540px ;
+}
+.item__text--header{
+  height:190px ;
+}
+.item__text--descrip {
+  height: 240px;
+}
+.item__text--info{
+  height:100px ;
+}
+.item__text--header > h1{
+  font-size: 18px;
+  font-family: "Montserrat-Medium";
+  text-transform: uppercase;
+  color:#25315A;
+  margin: 0;
+}
+.item__text--descrip > p {
+  text-align: left;
+  font-size: 18px;
+}
+.item__text--info p > span{
+  font-family: "Lato-Regular";
+  font-size: 18px;
+  display: inline;
 }
