@@ -41,72 +41,19 @@
     <section id = "toys">
       <span class="tagline">Бру-бру - это развивающие игрушки, сделанные вручную <br>
           из натурального дерева с любовью для ваших детей! </span>
-      <div class="item-card">
-        <div class="item-card__lg">
-          <div class="item-card__lg--img">
-            <img src="/source/img/balls.jpg" width=580 alt="">
-          </div>
-          <div class="item-card__lg--text">
-            <h4>Шары на тарелочках в чаше</h4>
-            <h4><span>1500 р</span></h4>
-          </div>
-          <div class="item-card__lg--text">
-            <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
-            <button>В корзину</button>
-          </div>
-        </div> 
-        <div class="item-card__lg">
-          <div class="item-card__lg--img">
-            <img src="/source/img/balls.jpg" width=580 alt="">
-          </div>
-          <div class="item-card__lg--text">
-            <h4>Шары на тарелочках в чаше</h4>
-            <h4><span>1500 р</span></h4>
-          </div>
-          <div class="item-card__lg--text">
-            <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
-            <button>В корзину</button>
-          </div>
-        </div> 
-        <div class="item-card__sm">
-          <div class="item-card__sm--img">
-            <img src="/source/img/rainbow.jpg" width=380 alt="">
-          </div>
-          <div class="item-card__sm--text">
+      <div class="item-card__wrap">
+        <!-- <div class="item-card">
+          <img class="item-card__img" src="/source/img/balls.jpg" alt="">
+          <div class="item-card__title">
             <h4>Радуга Монтессори</h4>
-            <h4><span>1500 р</span></h4>
+            <span>2500 р</span>
           </div>
-          <div class="item-card__sm--text">
-            <span>12 элементов </br> радужные цвета</span>
+          <div class="item-card__text">
+            <span>12 элементов<br>Радужные цвета</span>
             <button class="button">В корзину</button>
           </div>
-        </div>  
-        <div class="item-card__sm">
-          <div class="item-card__sm--img">
-            <img src="/source/img/rainbow.jpg" width=380 alt="">
-          </div>
-          <div class="item-card__sm--text">
-            <h4>Радуга Монтессори</h4>
-            <h4><span>1500 р</span></h4>
-          </div>
-          <div class="item-card__sm--text">
-            <span>12 элементов </br> радужные цвета</span>
-            <button>В корзину</button>
-          </div>
+        </div> -->
         </div> 
-        <div class="item-card__sm">
-          <div class="item-card__sm--img">
-            <img src="/source/img/rainbow.jpg" width=380 alt="">
-          </div>
-          <div class="item-card__sm--text">
-            <h4>Радуга Монтессори</h4>
-            <h4><span>1500 р</span></h4>
-          </div>
-          <div class="item-card__sm--text">
-            <span>12 элементов </br> радужные цвета</span>
-            <button>В корзину</button>
-          </div>
-        </div>      
       </div>
     </section>
     <section class="about" id = "about" >
@@ -174,7 +121,49 @@
 </div>
     </section>
   </main>
+
+  <!-- Modals -->
+  <!-- Basket -->
+  <div class="popup">
+    <div class="order__item">
+      <div class="order__item--img"><img src="/source/img/balls.jpg" alt="" width="120"></div>
+      <div class="order__item--info">
+        <h4>Шары на тарелочках в чаше</h4>
+        <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
+        <p>Липа, карнаубский воск, для детей от 3-х лет</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order -->
   
-  
+  <form action="POST">
+    <p>1. Контактная информация</p>
+    <div class="order__info--inputs">
+      <input type="text" placeholder="ФИО">
+      <input type="text" placeholder="Телефон">
+      <input type="text" placeholder="E-mail">
+    </div>
+    <p>2. Адрес доставки</p>
+    <div class="order__info--inputs">
+      <input type="text" placeholder="Город">
+      <input type="text" placeholder="Улица, дом, корпус, квартира" width="450px">
+    </div>
+    <p>3. Способ оплаты</p>
+    <div class="order__info--radio">
+      <input type="radio" id="rd1"> <label for="rd1">Перевод на карту Тинькофф</label>
+      <input type="radio" id="rd1"> <label for="rd2">Наложенный платеж</label>
+    </div>
+    <p>4. Способ доставки</p>
+    <div class="order__info--radio">
+      <input type="radio" id="rd1"> <label for="rd3">Самовывоз (СПб)</label>
+      <input type="radio" id="rd1"> <label for="rd4">Почта России</label>
+      <input type="radio" id="rd1"> <label for="rd5">Транспортная компания</label>
+    </div>
+    
+    
+  </form>
+
+  <script src="/source/js/script.js"></script>
 </body>
 </html>

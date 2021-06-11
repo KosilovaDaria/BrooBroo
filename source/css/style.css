@@ -55,6 +55,7 @@ h4, .content__text > h1{
   font-size: 18px;
   font-family: "Montserrat-Medium";
   text-transform: uppercase;
+  /* margin-bottom: 10px; */
 }
 
 span {
@@ -70,7 +71,7 @@ p {
   line-height: 30px;
   letter-spacing: 1px;
 }
-button{
+.button{
   font-size: 16px;
   font-family: "Lato-Regular";
   border: 1px solid #0D75D7;
@@ -81,7 +82,7 @@ button{
   font-size: 16px;
   padding: 10px 20px;
 }
-button:hover {
+.button:hover {
   border: 1px solid #25315A;;
   border-radius: 5px;
   background-color: #25315A;
@@ -196,60 +197,64 @@ button:hover {
   line-height: 36px;
   text-align: center;
 }
-.item-card {
+.item-card__wrap{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
 }
-.item-card__lg {
-  width: 580px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 50px;
-}
-.item-card__lg--text {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-top: 10px;
-}
-h4 > span {
-  font-size: 20px;
-  font-family: "Montserrat-Medium";
-}
-.item-card__lg--text > span {
-  font-size: 16px;
-  line-height: 24px;
-}
-.item-card__lg--text > button {
-  align-self:center;
-}
-
-.item-card__sm {
+.item-card {
   width: 380px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
 }
-.item-card__sm--text {
+.item-card__img {
+  width: 380px;
+  height: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.item-card__title, .item-card__text  {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
-  padding-top: 10px;
+  width: 380px;
 }
-h4 > span {
+
+.item-card__title  {
+  align-items: flex-end;
+  height: 30px;
+}
+
+.item-card__text  {
+  align-items: center;
+  height: 70px;
+}
+
+.item-card__title > span {
   font-size: 20px;
   font-family: "Montserrat-Medium";
+  text-align: center;
+ 
 }
-.item-card__sm--text > span {
+.item-cardcard__text > span {
   font-size: 16px;
   line-height: 24px;
+  display: block;
 }
-.item-card__sm--text > button {
-  align-self:center;
+
+.item-card__lg {
+  width: 580px;
+}
+.img__lg {
+  width: 580px;
+  height: 450px;
 }
 
 /* About */
@@ -519,4 +524,26 @@ h4 > span {
   font-family: "Lato-Regular";
   font-size: 18px;
   display: inline;
+}
+
+
+/* ORDER */
+.order{
+  width: 690px;
+  margin: 0 auto;
+}
+.order__item {
+  display: flex;
+}
+form > p {
+  text-align: left;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+.order__info--inputs {
+  display: flex;
+  justify-content: space-between;
+}
+.order__info--inputs > input {
+  width: 210px;
 }
