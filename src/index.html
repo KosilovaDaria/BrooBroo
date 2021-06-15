@@ -5,15 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Broo Broo Toys</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./assets/css/normalize.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
   <header class="header" id="main">
       <div class="header__wrapper">
         <nav class="header__nav">
           <div class="header__nav--logo">
-            <a class="" href="#main"><img src="img/logo_white.png" alt="Logo" width="125"></a>
+            <a class="" href="#main"><img src="./assets/img/logo_white.png" alt="Logo" width="125"></a>
           </div>
           <ul class="header__nav--menu">
             <li><a href="#toys">Игрушки</a></li>
@@ -27,7 +27,7 @@
             <ul class="contacts__nav--smedia">
               <li><a href="https://www.instagram.com/" target="_blank"></a></li>
               <li><a href="https://vk.com/" target="_blank"></a></li>
-              <li><a href="https://www.facebook.com/" src="source/img//Insta.png" target="_blank"></a></li>
+              <li><a href="https://www.facebook.com/" src="./assets/img/Insta.png" target="_blank"></a></li>
             </ul>
           </div>
         </nav>
@@ -66,17 +66,17 @@
         </div>
       </div>
       <div class="about__img">
-        <img src="/source/img/about.png" alt="">
+        <img src="./assets/img/about.png" alt="">
       </div>
     </section>
     <section class="materials" id = "materials" >
       <div class="materials__img">
-        <img src="/source/img/materials.jpeg" alt="">
+        <img src="./assets/img/materials.jpeg" alt="">
       </div>
       <div class="materials__wrap">
         <div class="materials__text">
           <h2>О материалах</h2>
-          <p>Все игрушки сделаны из липы. Эта светлая порода не оставляет заноз. Но есть и минус - липа мягкая, поэтому если как следует треснуть по дуге машинкой - останется вмятина.Покрываются игрушки цветным воском Biofa по стандарту EN 71 (требования безопасности игрушек). Устойчив к слюне, лично проверяла на маленьком грызуне</p>
+          <p>Все игрушки сделаны из липы. Эта светлая порода не оставляет заноз. Но есть и минус - липа мягкая, поэтому если как следует треснуть по дуге машинкой - останется вмятина. Покрываются игрушки цветным воском Biofa по стандарту EN 71 (требования безопасности игрушек). Устойчив к слюне, лично проверяла на маленьком грызуне</p>
         </div>
       </div>
     </section>
@@ -102,11 +102,11 @@
       <div class="contacts__text">
         <p>Если у Вас есть вопросы или предложения - напишите нам, мы любим живое общение и новые идеи!</p>
       </div>
-      <form class = "form" action="POST">
-        <input class = "form__input" type="text" placeholder="Ваше имя">
-        <input class = "form__input" type="text" placeholder="Ваш e-mail">
-        <input class = "form__text-area" type="textarea" placeholder="Ваш вопрос">
-        <button class="button" type="submit">Отправить</button>
+      <form class = "form" id="form">
+        <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
+        <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
+        <input class = "form__text-area" name="text" type="textarea" placeholder="Ваш вопрос">
+        <button class="button" type="submit" name="submit">Отправить</button>
         <p class="form__notice">Нажимая на кнопку Вы даете согласие на обработку персональных данных
         и соглашаетесь с политикой конфиденциальности</p>
       </form>
@@ -116,7 +116,7 @@
     <ul class="contacts__footer--smedia">
       <li><a href="https://www.instagram.com/" target="_blank"></a></li>
       <li><a href="https://vk.com/" target="_blank"></a></li>
-      <li><a href="https://www.facebook.com/" src="source/img//Insta.png" target="_blank"></a></li>
+      <li><a href="https://www.facebook.com/" src="./img/Insta.png" target="_blank"></a></li>
     </ul>
 </div>
     </section>
@@ -164,6 +164,6 @@
     
   </form> -->
 
-  <script src="/source/js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 </html>

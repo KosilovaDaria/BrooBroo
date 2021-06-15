@@ -1,30 +1,30 @@
 @font-face{
   font-family: "Hachi-Maru-Pop";
-  src: url(/source/fonts/HachiMaruPop-Regular.ttf)
+  src: url(../fonts/HachiMaruPop-Regular.ttf)
 }
 @font-face{
   font-family: "Lato-Light";
-  src: url(/source/fonts/Lato-Light.ttf)
+  src: url(../fonts/Lato-Light.ttf)
 }
 @font-face{
   font-family: "Lato-Regular";
-  src: url(/source/fonts/Lato-Regular.ttf)
+  src: url(../fonts/Lato-Regular.ttf)
 }
 @font-face{
   font-family: "Lato-Medium";
-  src: url(/source/fonts/Lato-Medium.ttf)
+  src: url(../fonts/Lato-Medium.ttf)
 }
 @font-face{
   font-family: "Montserrat-Light";
-  src: url(/source/fonts/Montserrat-Light.ttf)
+  src: url(../fonts/Montserrat-Light.ttf)
 }
 @font-face{
   font-family: "Montserrat-Medium";
-  src: url(/source/fonts/Montserrat-Medium.ttf)
+  src: url(../fonts/Montserrat-Medium.ttf)
 }
 @font-face{
   font-family: "Montserrat-SemiBold";
-  src: url(/source/fonts/Montserrat-SemiBold.ttf)
+  src: url(../fonts/Montserrat-SemiBold.ttf)
 }
 * {
   margin: 0;
@@ -40,7 +40,7 @@ h1{
 h2{
   font-size: 36px;
   font-family: "Montserrat-Medium";
-  letter-spacing: 5%;
+  letter-spacing: 5px;
   text-align: center;
   padding-bottom: 20px;
 }
@@ -170,7 +170,7 @@ p {
 
 }
 .contacts__nav--smedia li > a{
-  background: url(../img/Insta_nav.png);
+  background: url(img/pay_icon.png);
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center center;
@@ -305,7 +305,7 @@ p {
 .pay-deliv__pay .pay-deliv__pay--text::before {
   content: "";
   margin: 0;
-  background: url(/source/img/pay_icon.png);
+  background: url(../img/pay_icon.png);
   background-repeat: no-repeat;
   background-size: auto;
   padding: 40px 40px;
@@ -317,7 +317,7 @@ p {
 .pay-deliv__deliv .pay-deliv__deliv--text::before {
   content: "";
   margin: 0;
-  background: url(/source/img/deliv_icon.png);
+  background: url(../img/deliv_icon.png);
   background-repeat: no-repeat;
   background-size: auto;
   padding: 40px 40px;
@@ -336,7 +336,7 @@ p {
 .contacts .contacts__text::before {
   content: "";
   margin: 0;
-  background: url(/source/img/letter_icon.png);
+  background: url(../img/letter_icon.png);
   background-repeat: no-repeat;
   background-size: auto;
   padding: 40px 40px;
@@ -370,6 +370,13 @@ p {
 }
 .form button {
   width: none;
+}
+
+/* Modals */
+.modals {
+  width: 700px;
+  height: 500;
+  margin: 0 auto;
 }
 
 /* Footer */

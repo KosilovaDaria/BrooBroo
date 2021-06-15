@@ -2,7 +2,7 @@
 let items = [
   {
     isAvailable: true,
-    src: './img/balls.jpg', 
+    src: 'assets/img/balls.jpg', 
     alt: "Шары",
     title: 'Шары на тарелочках в чаше',
     text: 'Набор для сортировки по цветам<br>7 шаров, 7 тарелочек, 1 чаша', 
@@ -11,7 +11,7 @@ let items = [
   },
   {
     isAvailable: true,
-    src: './img/dolls.jpg', 
+    src: './assets/img/dolls.jpg', 
     alt: "Куклы",
     title: 'Куклы-колышки в стаканчиках',
     text: 'Набор для сортировки по цветам<br>7 шаров, 7 тарелочек, 1 чаша', 
@@ -20,7 +20,7 @@ let items = [
   },
   {
     isAvailable: true,
-    src: './img/rainbow.jpg', 
+    src: './assets/img/rainbow.jpg', 
     alt: "Радуга",
     title: 'Радуга Монтессори',
     text: '12 элементов<br>Радужные цвета', 
@@ -29,7 +29,7 @@ let items = [
   },
   {
     isAvailable: true,
-    src: './img/rainbow_violet.jpeg', 
+    src: './assets/img/rainbow_violet.jpeg', 
     alt: "Радуга градиент",
     title: 'Радуга Монтессори',
     text: '12 элементов<br>Фиолетовый градиент', 
@@ -38,7 +38,7 @@ let items = [
   },
   {
     isAvailable: true,
-    src: './img/rainbow_wood.jpg', 
+    src: './assets/img/rainbow_wood.jpg', 
     alt: "Радуга дерево",
     title: 'Радуга Монтессори',
     text: '12 элементов<br>Натуральное дерево', 
@@ -47,7 +47,7 @@ let items = [
   },
   {
     isAvailable: true,
-    src: './img/rainbow_reverse.jpg', 
+    src: './assets/img/rainbow_reverse.jpg',
     alt: "Радуга обратный градиент",
     title: 'Радуга Монтессори',
     text: '12 элементов<br>Фиолетовый градиент', 
@@ -105,3 +105,55 @@ function createItemCard(arr) {
   }
 }
 createItemCard(items);
+
+
+
+const form = document.querySelector('form'),
+      inputs = document.querySelectorAll('input');
+
+// const validateEmail = () => {
+//   inputs.forEach(item => {
+//     item.addEventListener('input', () => {
+//   /*получаем от пользователя значение инпута
+//   и с помощью регулярных выражений ищем все не числа,
+//   если они есть заеняем на пустоту */
+//       item.value = item.value.replace(/\D/, '');
+//     });
+//   });
+// };
+
+const postData = async (url, data) => {
+  let res = await fetch(url, {
+    method: "POST",
+    body: data, 
+  });
+  return await res.text();
+};
+
+const clearInputs = () => {
+  inputs.forEach(item => {
+    item.value = '';
+  });
+};
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+  const formData = new FormData(form);
+  console.log(formData);
+  
+  postData('assets/server.php', formData) 
+        .then(res => {
+          console.log(res);
+        })
+        .finally(() => { 
+          clearInputs();
+
+        });
+  });
+
+
+
+  // validateEmail('input[name = "email"]');
+
+
