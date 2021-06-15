@@ -24,7 +24,7 @@ var paths = {
     dest: '/Applications/MAMP/htdocs/broo'
   },
   scripts: {
-    src: 'src/js/*.js',
+    src: 'src/js/*/*.js',
     dest: '/Applications/MAMP/htdocs/broo/js'
   },
   assets: {

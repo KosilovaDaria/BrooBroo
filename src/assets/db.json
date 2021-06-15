@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "isAvailable": true,
+      "src": "assets/img/balls.jpg",
+      "alt": "Шары",
+      "title": "Шары на тарелочках в чаше",
+      "text": "Набор для сортировки по цветам<br>7 шаров, 7 тарелочек, 1 чаша",
+      "price": 1500,
+      "largeCard": true
+    },
+    {
+      "isAvailable": true,
+      "src": "./assets/img/dolls.jpg",
+      "alt": "Куклы",
+      "title": "Куклы-колышки в стаканчиках",
+      "text": "Набор для сортировки по цветам<br>7 шаров, 7 тарелочек, 1 чаша",
+      "price": 1500,
+      "largeCard": true
+    },
+    {
+      "isAvailable": true,
+      "src": "./assets/img/rainbow.jpg",
+      "alt": "Радуга",
+      "title": "Радуга Монтессори",
+      "text": "12 элементов<br>Радужные цвета",
+      "price": 2500,
+      "largeCard": false
+    },
+    {
+      "isAvailable": true,
+      "src": "./assets/img/rainbow_violet.jpeg",
+      "alt": "Радуга градиент",
+      "title": "Радуга Монтессори",
+      "text": "12 элементов<br>Фиолетовый градиент",
+      "price": 2500,
+      "largeCard": false
+    },
+    {
+      "isAvailable": true,
+      "src": "./assets/img/rainbow_wood.jpg",
+      "alt": "Радуга дерево",
+      "title": "Радуга Монтессори",
+      "text": "12 элементов<br>Натуральное дерево",
+      "price": 2500,
+      "largeCard": false
+    },
+    {
+      "isAvailable": true,
+      "src": "./assets/img/rainbow_reverse.jpg",
+      "alt": "Радуга обратный градиент",
+      "title": "Радуга Монтессори",
+      "text": "12 элементов<br>Фиолетовый градиент",
+      "price": 2500,
+      "largeCard": false
+    }
+  ]
+}
