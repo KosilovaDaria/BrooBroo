@@ -1,5 +1,6 @@
 "use strict";
 const gulp = require("gulp");
+const webpack = require ("webpack-stream");
 const browsersync = require("browser-sync");
 
 
@@ -24,7 +25,7 @@ var paths = {
     dest: '/Applications/MAMP/htdocs/broo'
   },
   scripts: {
-    src: 'src/js/*/*.js',
+    src: 'src/js/**/*.js',
     dest: '/Applications/MAMP/htdocs/broo/js'
   },
   assets: {
@@ -39,10 +40,43 @@ function html() {
                 .pipe(browsersync.stream());
 }
 
+
+// function scripts() {
+//   return gulp.src(paths.scripts.src)
+//                 .pipe(gulp.dest(paths.scripts.dest))
+//                 .pipe(browsersync.stream());
+// }
+
 function scripts() {
-  return gulp.src(paths.scripts.src)
-                .pipe(gulp.dest(paths.scripts.dest))
-                .pipe(browsersync.stream());
+  return gulp.src("src/js/main.js")
+                .pipe(webpack({
+                  mode: 'development',
+                  output: {
+                    filename: 'script.js',
+                  },
+                  watch: false,
+                  devtool: "source-map",
+                  module: {
+                    rules: [
+                      {
+                        test: /\.m?js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                          loader: 'babel-loader',
+                          options: {
+                            presets: [['@babel/preset-env', {
+                                debug: true,
+                                corejs: 3,
+                                useBuiltIns: "usage"
+                            }]]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }))
+                .pipe(gulp.dest(paths.scripts.dest));
+                // .on('end'.browsersync.reload);
 }
 
 function assets() {
