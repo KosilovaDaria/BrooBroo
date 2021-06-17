@@ -31,7 +31,7 @@ const itemCards = () => {
         </div>
         <div class="item-card__text">
           <span>${item.text}</span>
-          <button class="button">В корзину</button>
+          <button class="button" data-btn>В корзину</button>
         </div>
       `;
     
@@ -45,7 +45,7 @@ const itemCards = () => {
         </div>
         <div class="item-card__text item-card__lg">
           <span>${item.text}</span>
-          <button class="button">В корзину</button>
+          <button class="button" data-btn>В корзину</button>
         </div>
       `;
       }

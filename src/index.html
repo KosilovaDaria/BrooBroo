@@ -42,7 +42,7 @@
       <span class="tagline">Бру-бру - это развивающие игрушки, сделанные вручную <br>
           из натурального дерева с любовью для ваших детей! </span>
       <div class="item-card__wrap">
-        <!-- <div class="item-card">
+        <div class="item-card">
           <img class="item-card__img" src="assets/img/balls.jpg" alt="">
           <div class="item-card__title">
             <h4><a href="item.html">Радуга Монтессори</a> </h4>
@@ -52,7 +52,7 @@
             <span>12 элементов<br>Радужные цвета</span>
             <button class="button">В корзину</button>
           </div>
-        </div> -->
+        </div>
         </div> 
       </div>
     </section>
@@ -106,7 +106,7 @@
         <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
         <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
         <input class = "form__text-area" name="text" type="textarea" placeholder="Ваш вопрос">
-        <button class="button" type="submit" name="submit">Отправить</button>
+        <button class="button submit__btn"  type="submit" name="submit">Отправить</button>
         <p class="form__notice">Нажимая на кнопку Вы даете согласие на обработку персональных данных
         и соглашаетесь с политикой конфиденциальности</p>
       </form>
@@ -124,16 +124,38 @@
 
   <!-- Modals -->
   <!-- Basket -->
-  <!-- <div class="popup">
-    <div class="order__item">
-      <div class="order__item--img"><img src="/source/img/balls.jpg" alt="" width="120"></div>
-      <div class="order__item--info">
+  <!-- <div class="popupVis">
+    <button type="button" class="popup_close"><strong>&times;</strong></button>
+    <div class="popup">
+    <h2>Корзина</h2>
+    <button class="button">Продолжить покупки</button>
+    <div class="popup__basket">
+      <div class="popup__basket--img"><img src="assets/img/balls.jpg" alt="" width="120"></div>
+      <div class="popup__basket--info">
         <h4>Шары на тарелочках в чаше</h4>
         <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
         <p>Липа, карнаубский воск, для детей от 3-х лет</p>
       </div>
+      <button>1</button>
+      <p>1500 р</p>
+      <button>X</button>
     </div>
+    <div class="popup__basket--info">
+      <p>Товаров на сумму:</p>
+    </div>
+    <button class="button">Перейти к оформлению</button>
+
+  </div>
   </div> -->
+
+  <div class="modal-thanks">
+    <div class="modal-thanks__content">
+      <button type="button" class="popup_close"><strong>&times;</strong></button>
+      <p>Thanks!</p>
+    </div>
+
+  </div>
+  
 
   <!-- Order -->
   
