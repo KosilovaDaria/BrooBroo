@@ -1,7 +1,20 @@
 const itemCards = () => {
   
   const wrapItemCard = document.querySelector('.item-card__wrap');
-  
+  const modal = document.querySelector('.modal-cart');
+ 
+  wrapItemCard.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.classList.contains('btn') ) {
+      modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+    close.addEventListener('click', () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    });
+    
+  });
 
   const getResourse = async (url) => {
     const res = await fetch(url);
@@ -31,7 +44,7 @@ const itemCards = () => {
         </div>
         <div class="item-card__text">
           <span>${item.text}</span>
-          <button class="button" data-btn>В корзину</button>
+          <button class="button btn" data-btn>В корзину</button>
         </div>
       `;
     
@@ -45,7 +58,7 @@ const itemCards = () => {
         </div>
         <div class="item-card__text item-card__lg">
           <span>${item.text}</span>
-          <button class="button" data-btn>В корзину</button>
+          <button class="button btn" data-btn>В корзину</button>
         </div>
       `;
       }

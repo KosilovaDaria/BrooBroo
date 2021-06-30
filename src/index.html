@@ -42,7 +42,7 @@
       <span class="tagline">Бру-бру - это развивающие игрушки, сделанные вручную <br>
           из натурального дерева с любовью для ваших детей! </span>
       <div class="item-card__wrap">
-        <div class="item-card">
+        <!-- <div class="item-card">
           <img class="item-card__img" src="assets/img/balls.jpg" alt="">
           <div class="item-card__title">
             <h4><a href="item.html">Радуга Монтессори</a> </h4>
@@ -50,9 +50,9 @@
           </div>
           <div class="item-card__text">
             <span>12 элементов<br>Радужные цвета</span>
-            <button class="button">В корзину</button>
+            <button class="button btn">В корзину</button>
           </div>
-        </div>
+        </div> -->
         </div> 
       </div>
     </section>
@@ -124,34 +124,45 @@
 
   <!-- Modals -->
   <!-- Basket -->
-  <!-- <div class="popupVis">
-    <button type="button" class="popup_close"><strong>&times;</strong></button>
-    <div class="popup">
-    <h2>Корзина</h2>
-    <button class="button">Продолжить покупки</button>
-    <div class="popup__basket">
-      <div class="popup__basket--img"><img src="assets/img/balls.jpg" alt="" width="120"></div>
-      <div class="popup__basket--info">
-        <h4>Шары на тарелочках в чаше</h4>
-        <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
-        <p>Липа, карнаубский воск, для детей от 3-х лет</p>
+  <div class="modal-cart">
+    <div class="modal-cart__dialog"> 
+      <div class="modal__content">
+        <button type="button" class="modal-cart__close"><strong>&times;</strong></button>
+        <h2>Корзина</h2>
+        <button class="button">Продолжить покупки</button>
+          <div class="modal-cart__wrap">
+            <div class="modal-cart__item">
+              <div class="modal-cart__item--img"><img src="assets/img/balls.jpg" alt="" width="120"></div>
+              <div class="modal-cart__item--info">
+                <h4>Шары на тарелочках в чаше</h4>
+                <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
+                <p>Липа, карнаубский воск, для детей от 3-х лет</p>
+              </div>
+              <button class="button">1</button>
+              <p>1500 р</p>
+              <button class="button btn__cart">&times;</button>
+            </div>
+            <div class="modal-cart__total">
+            <p>Товаров на сумму: 1500 p</p>
+            </div>
+          </div>
+          <button class="button">Оформить заказ</button>
+          
+        </div>
       </div>
-      <button>1</button>
-      <p>1500 р</p>
-      <button>X</button>
     </div>
-    <div class="popup__basket--info">
-      <p>Товаров на сумму:</p>
-    </div>
-    <button class="button">Перейти к оформлению</button>
-
-  </div>
-  </div> -->
+  
 
   <div class="modal-thanks">
-    <div class="modal-thanks__content">
-      <button type="button" class="popup_close"><strong>&times;</strong></button>
-      <p>Thanks!</p>
+    <div class="modal__content">
+      <button type="button" class="modal-thanks__close"><strong>&times;</strong></button>
+      <div class="modal-thanks__img">
+        <img src="assets/img/Logo_Broo.png" alt="Logo" width="125">
+      </div>
+      <h2>Спасибо!</h2>
+      <p>Ваше сообщение успешно отправлено! <br>
+        Мы свяжемся с вами в ближайшее время.</p>
+      <button class="button">На главную</button>
     </div>
 
   </div>

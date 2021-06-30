@@ -34,9 +34,9 @@ const modals = () => {
 
   }
 
-  bindModal('.submit__btn', '.modal-thanks','.popup_close');
+  bindModal('.submit__btn', '.modal-thanks','.modal-thanks__close');
 
-  bindModal('.button', '.modal-thanks','.popup_close');
+  bindModal('.btn', '.modal-cart','.modal-cart__close');
 
 
 };
