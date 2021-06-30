@@ -34,8 +34,7 @@ const itemCards = () => {
       const divItemCard = document.createElement('div');
       divItemCard.classList.add('item-card');
       wrapItemCard.append(divItemCard);
-   
-  
+
       divItemCard.innerHTML = `
      <img class="item-card__img" src=${item.src} alt="${item.alt}">
         <div class="item-card__title">
@@ -62,7 +61,7 @@ const itemCards = () => {
         </div>
       `;
       }
-      
+      console.log(divItemCard);
       wrapItemCard.appendChild(divItemCard);
     });
   }
@@ -105,7 +104,7 @@ const itemCards = () => {
           <h1> шары на тарелочках в чаше</h1>
           <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
           <h4><span>1500 р</span></h4>
-          <button class="button">В корзину</button>
+          <button class="button btn">В корзину</button>
         </div>
   
         <div class="item__text--descrip">
@@ -128,7 +127,7 @@ const itemCards = () => {
     const target = e.target;
     if (target.classList.contains('item-card__img') ) {
       createModalItem();
-      
+      console.log();
     }
     modalItemClose.addEventListener('click', () => {
       modalItem.style.display = "none";
@@ -137,7 +136,16 @@ const itemCards = () => {
     });
     
   });
-};
+ const modalCart = document.querySelector('.modal-cart');
+  modalItem.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.classList.contains('btn') ) {
+      modalItem.style.display = "none";
+      modalCart.style.display = "block";
+      document.body.style.overflow = "hidden";
 
+    }
+  });
+};
 
 export default itemCards;

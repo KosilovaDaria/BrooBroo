@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_itemCards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/itemCards */ "./src/js/modules/itemCards.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
-console.log(3);
+console.log(2);
 
 
  // window.addEventListener('DOMContentLoaded', () => {
@@ -224,6 +224,7 @@ const itemCards = () => {
       `;
       }
 
+      console.log(divItemCard);
       wrapItemCard.appendChild(divItemCard);
     });
   } // const modal = document.querySelector('.modal-item');
@@ -266,11 +267,12 @@ const itemCards = () => {
           <h1> шары на тарелочках в чаше</h1>
           <span>Набор для сортировки по цветам </br> 7 шаров, 7 тарелочек, 1 чаша</span>
           <h4><span>1500 р</span></h4>
-          <button class="button">В корзину</button>
+          <button class="button btn">В корзину</button>
         </div>
   
         <div class="item__text--descrip">
-          <p>Этот набор радужных шаров и тарелок можно использовать для сортировки по цвету, сопоставления цветов, подсчета, складывания и многого другого. 
+          <p>Этот набор радужных шаров и тарелок можно использовать для сортировки по цвету,
+          сопоставления цветов, подсчета, складывания и многого другого. 
             Набор расписан карнаубским воском, что делает его идеальным для маленьких ручек.</p>
           <p>Обратите внимание, что все шары выточены вручную и могут быть неидеально круглыми.</p>
         </div>
@@ -290,6 +292,7 @@ const itemCards = () => {
 
     if (target.classList.contains('item-card__img')) {
       createModalItem();
+      console.log();
     }
 
     modalItemClose.addEventListener('click', () => {
@@ -297,6 +300,16 @@ const itemCards = () => {
       document.body.style.overflow = "";
       modalItemContent.innerHTML = "";
     });
+  });
+  const modalCart = document.querySelector('.modal-cart');
+  modalItem.addEventListener('click', e => {
+    const target = e.target;
+
+    if (target.classList.contains('btn')) {
+      modalItem.style.display = "none";
+      modalCart.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
   });
 };
 
