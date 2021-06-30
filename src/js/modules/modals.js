@@ -33,10 +33,14 @@ const modals = () => {
     });
 
   }
+  // bindModal('.item-card__title', '.modal-item','.modal-item__close');
+
+  bindModal('.btn', '.modal-cart','.modal-cart__close');
 
   bindModal('.submit__btn', '.modal-thanks','.modal-thanks__close');
 
-  bindModal('.btn', '.modal-cart','.modal-cart__close');
+  
+
 
 
 };
