@@ -2,8 +2,7 @@ const modals = () => {
   function bindModal(triggerSelector, modalSelector, closeSelector) {
     const trigger = document.querySelectorAll(triggerSelector),
           modal = document.querySelector(modalSelector),
-          close = document.querySelector(closeSelector),
-          wrapItemCard = document.querySelector('.item-card__wrap');
+          close = document.querySelector(closeSelector);
 
 
     trigger.forEach(item => {
