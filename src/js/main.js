@@ -1,4 +1,4 @@
-console.log(2);
+console.log(1);
 
 import itemCards from './modules/itemCards';
 import forms from './modules/forms';

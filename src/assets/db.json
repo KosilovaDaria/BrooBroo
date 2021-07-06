@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "id": 1,
+      "id": 0,
       "isAvailable": true,
       "src": "assets/img/balls.jpg",
       "src2": "assets/img/dolls.jpg",
@@ -14,7 +14,7 @@
       "info": "Материалы: липа, карнаубский воск<br>Размеры:  шар 3 см,  тарелка 4 см,  чаша 10 см<br>Рекомендации по возрасту: детям от 3 лет"
     },
     {
-      "id": 2,
+      "id": 1,
       "isAvailable": true,
       "src": "assets/img/dolls.jpg",
       "src2": "assets/img/balls.jpg",
@@ -28,7 +28,7 @@
 
     },
     {
-      "id": 3,
+      "id": 2,
       "isAvailable": true,
       "src": "./assets/img/dolls_rainbow.jpg",
       "src2": "assets/img/balls.jpg",
@@ -42,7 +42,7 @@
 
     },
     {
-      "id": 4,
+      "id": 3,
       "isAvailable": true,
       "src": "./assets/img/rainbow.jpg",
       "src2": "assets/img/balls.jpg",
@@ -56,7 +56,7 @@
 
     },
     {
-      "id": 5,
+      "id": 4,
       "isAvailable": true,
       "src": "./assets/img/rainbow_wood.jpg",
       "src2": "assets/img/balls.jpg",
@@ -70,7 +70,7 @@
 
     },
     {
-      "id": 6,
+      "id": 5,
       "isAvailable": true,
       "src": "./assets/img/rainbow_violet.jpeg",
       "src2": "assets/img/balls.jpg",
@@ -84,7 +84,7 @@
 
     },
     {
-      "id": 7,
+      "id": 6,
       "isAvailable": true,
       "src": "./assets/img/rainbow_reverse.jpg",
       "src2": "assets/img/balls.jpg",
