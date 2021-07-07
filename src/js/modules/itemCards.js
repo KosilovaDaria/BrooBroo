@@ -48,14 +48,22 @@ const itemCards = () => {
   const modalItem = document.querySelector('.modal-item'),
         modalItemContent = document.querySelector('.modal-item__content'),
         modalItemClose = document.querySelector('.modal-item__close');
-  
+       
+ /* когда карточка товара создалась динамически я вешаю на родительский элемент всех карточек
+ обработчик событий с делегированием тем элементам, у которых есть атрибут с номером
+ записываю в переменную этот номер элемента по атрибуту 
+ если эта переменная есть есть то я обращаюсь к серверу и обрабатываю промис в зен
+ так что получаю айди товара по которому был клик
+ и если номер атрибута и номер айди от сервера совпадают 
+ то я вызываю функцию создания модального окна в которую передаю айди товара
+ */
   wrapItemCard.addEventListener('click', (e) => {
     const target = e.target;
     if (target.getAttribute('data-id')) {
     // if (target.classList.contains('item-card__img') ) {
-      const id = target.getAttribute('data-id');
-    //  console.log(id+" - ID карточки товара на которую кликнула");
-      if (id) {
+      const idItem = target.getAttribute('data-id');
+     console.log(idItem+" - ID карточки товара на которую кликнула");
+      if (idItem) {
         const getProduct = async () => {
           const res = await fetch('assets/db.json');
       
@@ -67,25 +75,29 @@ const itemCards = () => {
         return await res.json();
         };
 
-        getProduct('assets/db.json', id)
+        getProduct('assets/db.json', idItem)
         .then((res) => {
-          const product = res.items[id];
-          // console.log(product);
-          const prod = res.items[id].id;
-          // console.log(prod + " - Ответ от сервера c ID");
+          const product = res.items[idItem];
+          console.log(product);
+          const prod = res.items[idItem].id;
+          console.log(prod + " - Ответ от сервера c ID");
           // const product = res.items.find(p => p.id === id);
-          if(id == prod){
+          if(idItem == prod){
             createModalItem(product);
+            // createModalOrder(product);
           }
         })
+        
         .catch(error => console.log(error));
       }
     }
-    modalItemClose.addEventListener('click', () => {
-      modalItem.style.display = "none";
-      document.body.style.overflow = "";
-      modalItemContent.innerHTML = "";
-    });
+ 
+  });
+
+  modalItemClose.addEventListener('click', () => {
+    modalItem.style.display = "none";
+    document.body.style.overflow = "";
+    modalItemContent.innerHTML = "";
   });
 
   function createModalItem(response) {
@@ -99,7 +111,7 @@ const itemCards = () => {
           <img class="img--main" src= ${response.src} alt="">
         </div>
         <div class="item__img--mini">
-          <img data-img = "0" src=${response.minies[0]} alt="">
+          <img class="img-active" data-img = "0" src=${response.minies[0]} alt="">
           <img data-img = "1" src=${response.minies[1]} alt="">
           <img data-img = "2" src=${response.minies[2]} alt="">
           <img data-img = "3" src=${response.minies[3]} alt="">
@@ -110,7 +122,7 @@ const itemCards = () => {
           <h1>${response.title}</h1>
           <span>${response.subtitle}</span>
           <h4><span>${response.price}</span></h4>
-          <button class="button btn">В корзину</button>
+          <button class="button" data-btn=${response.id}>В корзину</button>
         </div>
   
         <div class="item__text--descrip">
@@ -128,32 +140,99 @@ const itemCards = () => {
     const modalItemImgMini = document.querySelectorAll('.item__img--mini [data-img]'),
           modalItemImgMain = document.querySelector('.item__img--main img');
 
-      modalItemImgMini.forEach ((item) => {
-        const imgMiniSrc = item.src;
-        item.addEventListener('click', (e) => {
-          const target = e.target;
-          if (target.getAttribute('data-img')) {
-            modalItemImgMain.src = imgMiniSrc;
-          }
-        });
+    modalItemImgMini.forEach (item => {
+      const imgMiniSrc = item.src;
+      item.addEventListener('click', function(e) {
+        const target = e.target;
+        
+        this.classList.add("img-active");
+        
+        if (target.getAttribute('data-img')) {
+          modalItemImgMain.src = imgMiniSrc;
+        }
       });
+    });
+    
   } 
-  
- 
-  
 
-  const modalCart = document.querySelector('.modal-cart');
+
+  const modalOrder = document.querySelector('.modal-order'),
+        modalOrderContent = document.querySelector('.modal-order__content'),
+        modalOrderClose = document.querySelector('.modal-order__close');
+
   modalItem.addEventListener('click', (e) => {
     const target = e.target;
-    if (target.classList.contains('btn') ) {
-      modalItem.style.display = "none";
-      modalCart.style.display = "block";
-      document.body.style.overflow = "hidden";
-
+    if (target.getAttribute('data-btn')) {
+      const idBtn = target.getAttribute('data-btn');
+      console.log(idBtn);
+      
+      if (idBtn) {
+        const getProduct = async () => {
+          const res = await fetch('assets/db.json');
+      
+          if(!res.ok) {
+            throw new Error (`Could not fetch ${'assets/db.json'}, status: ${res.status}`);
+          }
+        // const product = res.json().items.find(p => p.id === id);
+        // return product;
+        return await res.json();
+        };
+        getProduct('assets/db.json', idBtn)
+        .then((res) => {
+          const product = res.items[idBtn];
+          console.log(product);
+          const prod = res.items[idBtn].id;
+          console.log(prod + " - Ответ от сервера c ID");
+          // const product = res.items.find(p => p.id === id);
+          if(idBtn == prod){
+ 
+            createModalOrder(product);
+          }
+        })
+        .catch(error => console.log(error));
+      }
     }
   });
 
+    modalOrderClose.addEventListener('click', () => {
+    modalOrder.style.display = "none";
+    document.body.style.overflow = "";
+    modalOrderContent.innerHTML = "";
+  });
 
+  function createModalOrder(response) {
+    modalItem.style.display = "none";
+    modalOrder.style.display = "block";
+    document.body.style.overflow = "hidden";
+    modalOrder.append(modalOrderClose);
+    modalOrderContent.innerHTML = `
+        <h2>Ваш заказ</h2>
+        <!-- <button class="button">Продолжить покупки</button> -->
+          <div class="modal-order__wrap">
+            <div class="modal-order__item">
+              <div class="modal-order__item--img"><img src= ${response.src} alt="" width="120"></div>
+              <div class="modal-order__item--info">
+                <h4>${response.title}</h4>
+               <span>${response.subtitle}</span>
+                <p>${response.material}</p>
+              </div>
+              <button class="button">1</button>
+              <p>${response.price} ₽</p>
+              <button class="button btn__order">&times;</button>
+            </div>
+            <div class="modal-order__total">
+            <p>Товаров на сумму:${response.price} ₽</p>
+            </div>
+          </div>
+          <form class = "form form__order" id="form">
+            <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
+            <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
+            <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
+            <button class="button submit__btn"  type="submit" name="submit">Оформить заказ</button>
+          </form>
+          <!-- <button class="button">Оформить заказ</button> -->
+    `;
+  }
 
 
 };
