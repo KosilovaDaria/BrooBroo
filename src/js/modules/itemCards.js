@@ -1,6 +1,3 @@
-// import { forEach } from "core-js/core/array";
-import allModals from './allModals';
-
 const itemCards = () => {
   
   const wrapItemCard = document.querySelector('.item-card__wrap');

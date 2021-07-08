@@ -1,15 +1,14 @@
-console.log(4);
+console.log(5);
 
 import itemCards from './modules/itemCards';
 import forms from './modules/forms';
-
-import allModals from './modules/allModals';
-import modalThanks from './modules/modalThanks';
+import modals from './modules/modals';
+// import modalThanks from './modules/modalThanks';
 
 // window.addEventListener('DOMContentLoaded', () => {
 
 // });
 itemCards();
 forms();
-modalThanks();
-allModals();
+// modalThanks();
+modals();

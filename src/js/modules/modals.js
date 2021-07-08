@@ -1,7 +1,7 @@
 import createModalItem from './createModalItem';
 import createModalOrder from './createModalOrder';
 
-const allModals = () => {
+const modals = () => {
   function openModal(parentSelector,attribute) {
     const parent = document.querySelector(parentSelector);
 
@@ -45,4 +45,4 @@ const allModals = () => {
   openModal('.modal-item', 'data-btn');
 };
 
-export default allModals;
+export default modals;

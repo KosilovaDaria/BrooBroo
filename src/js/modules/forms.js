@@ -1,3 +1,5 @@
+import modalThanks from './modalThanks';
+
 const forms = () => {
   const form = document.querySelectorAll('form'),
         input = document.querySelectorAll('input');
@@ -29,9 +31,12 @@ const forms = () => {
       postData('assets/server.php', formData) 
           .then(res => {
             console.log(res);
+
           })
           .finally(() => { 
             clearInputs();
+            modalThanks('.modal-thanks','.modal-thanks__close');
+        
           });
       });  
   });
