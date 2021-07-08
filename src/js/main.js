@@ -1,8 +1,9 @@
-console.log(1);
+console.log(4);
 
 import itemCards from './modules/itemCards';
 import forms from './modules/forms';
 import modals from './modules/modals';
+import allModals from './modules/allModals';
 
 // window.addEventListener('DOMContentLoaded', () => {
 
@@ -10,3 +11,4 @@ import modals from './modules/modals';
 itemCards();
 forms();
 modals();
+allModals();
