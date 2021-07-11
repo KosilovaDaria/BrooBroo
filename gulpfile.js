@@ -4,35 +4,35 @@ const webpack = require ("webpack-stream");
 const browsersync = require("browser-sync");
 
 
-var paths = {
-  html: {
-    src: 'src/*.html',
-    dest: 'dist'
-  },
-  scripts: {
-    src: 'src/js/**/*.js',
-    dest: 'dist/js'
-  },
-  assets: {
-    src: 'src/assets/**/*.*',
-    dest: 'dist/assets'
-  }
-};
-
 // var paths = {
 //   html: {
 //     src: 'src/*.html',
-//     dest: '/Applications/MAMP/htdocs/broo'
+//     dest: 'dist'
 //   },
 //   scripts: {
 //     src: 'src/js/**/*.js',
-//     dest: '/Applications/MAMP/htdocs/broo/js'
+//     dest: 'dist/js'
 //   },
 //   assets: {
 //     src: 'src/assets/**/*.*',
-//     dest: '/Applications/MAMP/htdocs/broo/assets'
+//     dest: 'dist/assets'
 //   }
 // };
+
+var paths = {
+  html: {
+    src: 'src/*.html',
+    dest: '/Applications/MAMP/htdocs/broo'
+  },
+  scripts: {
+    src: 'src/js/**/*.js',
+    dest: '/Applications/MAMP/htdocs/broo/js'
+  },
+  assets: {
+    src: 'src/assets/**/*.*',
+    dest: '/Applications/MAMP/htdocs/broo/assets'
+  }
+};
 
 function html() {
   return gulp.src(paths.html.src)
