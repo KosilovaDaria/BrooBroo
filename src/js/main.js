@@ -1,4 +1,4 @@
-console.log(5);
+console.log(7);
 
 import itemCards from './modules/itemCards';
 import forms from './modules/forms';
@@ -10,5 +10,4 @@ import modals from './modules/modals';
 // });
 itemCards();
 forms();
-// modalThanks();
 modals();

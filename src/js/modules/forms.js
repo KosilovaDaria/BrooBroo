@@ -1,8 +1,8 @@
 import modalThanks from './modalThanks';
 
 const forms = () => {
-  const form = document.querySelectorAll('form'),
-        input = document.querySelectorAll('input');
+  const forms = document.querySelectorAll('form'),
+        inputs = document.querySelectorAll('input');
 
 // Отправка данных на сервер
   const postData = async (url, data) => {
@@ -15,17 +15,17 @@ const forms = () => {
 
 // Очистка инпутов
   const clearInputs = () => {
-    input.forEach(item => {
+    inputs.forEach(item => {
       item.value = '';
     });
   };
 
 // Сбор данных форм и отправка
-  form.forEach(item => {
-    item.addEventListener('submit', (e) => {
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const formData = new FormData(item);
+      const formData = new FormData(form);
       console.log(formData);
       
       postData('assets/server.php', formData) 
@@ -35,7 +35,7 @@ const forms = () => {
           })
           .finally(() => { 
             clearInputs();
-            modalThanks('.modal-thanks','.modal-thanks__close');
+            modalThanks('.modal-order','.modal-thanks','.modal-thanks__close');
         
           });
       });  

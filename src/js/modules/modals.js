@@ -32,7 +32,7 @@ const modals = () => {
             if(idd == prod && attribute == ['data-id']) {
               createModalItem(product, '.modal-item', '.modal-item__content', '.modal-item__close');
             } else if (attribute == ['data-btn']) {
-              createModalOrder(product, '.modal-item', '.modal-order','.modal-order__content', '.modal-order__close');
+            createModalOrder(product, '.modal-item', '.modal-order','.modal-order__content', '.modal-order__close','.form__order');
             }
           })
           .catch(error => console.log(error));

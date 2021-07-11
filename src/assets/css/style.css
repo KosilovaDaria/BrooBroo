@@ -641,6 +641,11 @@ box-shadow:  0.1px 0.1px 10px 5px rgba(0, 0, 0, 0.3);;
 
 .form__order{
   width: 570px;
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 /* ORDER */
 .order{

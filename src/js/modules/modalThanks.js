@@ -1,7 +1,9 @@
-const modalThanks = ( modalSelector, closeSelector) => {
-  const modal = document.querySelector(modalSelector),
+const modalThanks = (parentSelector, modalSelector, closeSelector) => {
+  const parent = document.querySelector(parentSelector),
+        modal = document.querySelector(modalSelector),
         close = document.querySelector(closeSelector);
 
+  parent.style.display = "none";
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
 

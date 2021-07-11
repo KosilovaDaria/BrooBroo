@@ -1,8 +1,10 @@
-const createModalOrder = (product,parentSelector,modalSelector,modalContentSelector,closeSelector) => {
+
+const createModalOrder = (product,parentSelector,modalSelector,modalContentSelector,closeSelector,formSelector) => {
   const parent = document.querySelector(parentSelector),
         modal = document.querySelector(modalSelector),
         modalContent = document.querySelector(modalContentSelector),
-        close = document.querySelector(closeSelector);
+        close = document.querySelector(closeSelector),
+        form = document.querySelector(formSelector);
         
   parent.style.display = "none";
   modal.style.display = "block";
@@ -27,14 +29,9 @@ const createModalOrder = (product,parentSelector,modalSelector,modalContentSelec
           <p>Товаров на сумму:${product.price} ₽</p>
           </div>
         </div>
-        <form class = "form form__order" id="form">
-          <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
-          <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
-          <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
-          <button class="button submit__btn"  type="submit" name="submit">Оформить заказ</button>
-        </form>
-        <!-- <button class="button">Оформить заказ</button> -->
   `;
+  modal.append(form);
+
   
   close.addEventListener('click', () => {
     modal.style.display = "none";
