@@ -31,8 +31,14 @@ const createModalOrder = (product,parentSelector,modalSelector,modalContentSelec
         </div>
   `;
   modal.append(form);
+  // const order = {
+  //   productTitle: `${product.title}`,
+  //   productSubTitle: `${product.subtitle}`,
+  //   productPrice: `${product.price}`
+  // } ; 
 
-  
+  // console.log(order);
+
   close.addEventListener('click', () => {
     modal.style.display = "none";
     document.body.style.overflow = "";

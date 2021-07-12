@@ -1,8 +1,7 @@
 import createModalItem from './createModalItem';
 import createModalOrder from './createModalOrder';
 
-const modals = () => {
-  function openModal(parentSelector,attribute) {
+const modals = (parentSelector,attribute) => {
     const parent = document.querySelector(parentSelector);
 
     parent.addEventListener('click', (e) => {
@@ -10,7 +9,7 @@ const modals = () => {
 
       if(target.getAttribute(attribute)) {
         const idd = target.getAttribute(attribute);
-        console.log(idd+" - ID карточки товара на которую кликнула");
+        // console.log(idd+" - ID карточки товара на которую кликнула");
 
         if (idd) {
           const getProduct = async () => {
@@ -27,22 +26,24 @@ const modals = () => {
             const product = res.items[idd];
             // console.log(product);
             const prod = res.items[idd].id;
-            console.log(prod + " - Ответ от сервера c ID");
+            // console.log(prod + " - Ответ от сервера c ID");
 
             if(idd == prod && attribute == ['data-id']) {
               createModalItem(product, '.modal-item', '.modal-item__content', '.modal-item__close');
             } else if (attribute == ['data-btn']) {
             createModalOrder(product, '.modal-item', '.modal-order','.modal-order__content', '.modal-order__close','.form__order');
+            localStorage.setItem('toy',`${product.title}`);
+            localStorage.setItem('subscr',`${product.subtitle}`);
+            localStorage.setItem('price',`${product.price}`);
             }
           })
           .catch(error => console.log(error));
         }
       }
     });
-  }
 
-  openModal('.item-card__wrap','data-id');
-  openModal('.modal-item', 'data-btn');
+
+
 };
 
 export default modals;

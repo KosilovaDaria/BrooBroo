@@ -11,10 +11,15 @@ $mail = new PHPMailer(true);
 
 if(isset($_POST) && !empty($_POST)){
 	$fio = (isset($_POST['name']))?$_POST['name']:'';
-	$way = (isset($_POST['phone']))?$_POST['phone']:'';
+	$phone = (isset($_POST['phone']))?$_POST['phone']:'';
   $text = (isset($_POST['text']))?$_POST['text']:'';
+  $email = (isset($_POST['email']))?$_POST['email']:'';
+  $toy = (isset($_POST['toy']))?$_POST['toy']:'';
+  $subscr = (isset($_POST['subscr']))?$_POST['subscr']:'';
+  $price = (isset($_POST['price']))?$_POST['price']:'';
     
-  $sendMessage = "<p>Новое письмо контактной формы:</p><p><b>Имя:</b> ".$fio."</p><p><b>Телефон:</b> ".$way."</p><p><b>Сообщение:</b></p><p>".$text."</p>";
+  $sendOrder = "<p><b>Ура! Новый заказ:</b></p><p><b>Имя:</b> ".$fio."</p><p><b>Email:</b> ".$email."</p><p><b>Телефон: </b>".$phone."</p><p><b>Игрушка:</b> ".$toy."</p><p><b>Комплектация:</b> ".$subscr."</p><p><b>Цена:</b> ".$price." рублей</p>";
+  $sendQustn = "<p><b>Имя:</b> ".$fio."</p><p><b>Email:</b> ".$email."</p><p><b>Вопрос: </b>".$text."</p>";
 
   $mail->CharSet = 'utf-8';
   $mail->SMTPDebug = 0;                                 // Enable verbose debug output
@@ -30,9 +35,16 @@ if(isset($_POST) && !empty($_POST)){
 
   //Content
   $mail->isHTML(true);                                  // Set email format to HTML
+  $mail->Subject = 'Новый заказ';
+  $mail->Body    = $sendOrder;
+  $mail->AltBody = $sendOrder;
+
+  if($text) {
+    $mail->isHTML(true);                                  // Set email format to HTML
   $mail->Subject = 'Форма обратной связи';
-  $mail->Body    = $sendMessage;
-  $mail->AltBody = $sendMessage;
+  $mail->Body    = $sendQustn;
+  $mail->AltBody = $sendQustn;
+  }
 
   if($mail->send()) {
     echo "Данные отправлены.";
