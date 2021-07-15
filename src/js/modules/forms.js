@@ -1,30 +1,20 @@
 import modalThanks from './modalThanks';
+import checkNumInputs from './checkNumInputs';
+import {postData} from '../services/services';
 
 const forms = () => {
+
   const forms = document.querySelectorAll('form'),
         inputs = document.querySelectorAll('input');
 
+  checkNumInputs('input[name = "phone"]');
 
-
-// Отправка данных на сервер
-  const postData = async (url, data) => {
-    let res = await fetch(url, {
-      method: "POST",
-      body: data, 
-    });
-    return await res.text();
-  };
-
-// Очистка инпутов
   const clearInputs = () => {
     inputs.forEach(item => {
       item.value = '';
     });
   };
 
-
-
-// Сбор данных форм и отправка
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -35,8 +25,8 @@ const forms = () => {
           'toy': localStorage.getItem('toy'),
           'subscr': localStorage.getItem('subscr'),
           'price': localStorage.getItem('price'),
+          'quantity': localStorage.getItem('quantity'),
         };
-        console.log(order);
         for (let key in order) {
           formData.append(key, order[key]);
         }
@@ -46,12 +36,10 @@ const forms = () => {
       postData('assets/server.php', formData) 
           .then(res => {
             console.log(res);
-
           })
           .finally(() => { 
             clearInputs();
-            modalThanks('.modal-order','.modal-thanks','.modal-thanks__close');
-        
+            modalThanks('.modal-order','.modal-thanks');
           });
       });  
   });

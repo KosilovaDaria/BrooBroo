@@ -106,7 +106,8 @@
       </div>
       <form class = "form" id="form">
         <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
-        <input class = "form__input" name="phone" type="text" placeholder="Ваш e-mail">
+        <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
+        <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
         <input class = "form__text-area" name="text" type="textarea" placeholder="Ваш вопрос">
         <button class="button submit__btn"  type="submit" name="submit">Отправить</button>
         <p class="form__notice">Нажимая на кнопку Вы даете согласие на обработку персональных данных
@@ -137,17 +138,19 @@
   <div class="modal-order">
     <div class="modal-order__content">
       <button type="button" class="modal-order__close"><strong>&times;</strong></button>
-      <form class = "form form__order" id="form" data-order="order">
+      <h2>Ваш заказ</h2>
+      <div class="modal-order__wrap" data-order='order'>
+      </div>
+      <form class = "form form__order" id="form" name="order" data-order='order'>
         <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
         <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
         <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
         <button class="button submit__btn"  type="submit" name="submit">Оформить заказ</button>
       </form>
     </div>
-    
   </div>
   
-
+ <!-- Thanks -->
   <div class="modal-thanks">
     <div class="modal-thanks__content">
       <button type="button" class="modal-thanks__close"><strong>&times;</strong></button>
@@ -159,7 +162,6 @@
         Мы свяжемся с вами в ближайшее время.</p>
       <button class="button">На главную</button>
     </div>
-
   </div>
 
 

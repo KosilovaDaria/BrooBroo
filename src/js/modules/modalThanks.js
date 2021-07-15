@@ -1,17 +1,10 @@
-const modalThanks = (parentSelector, modalSelector, closeSelector) => {
+const modalThanks = (parentSelector, modalSelector) => {
   const parent = document.querySelector(parentSelector),
-        modal = document.querySelector(modalSelector),
-        close = document.querySelector(closeSelector);
+        modal = document.querySelector(modalSelector);
 
   parent.style.display = "none";
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
-
-
-  close.addEventListener('click', () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-  });
 
     //закрытие модалки по внешней области
   modal.addEventListener('click', (e) => {
@@ -20,7 +13,6 @@ const modalThanks = (parentSelector, modalSelector, closeSelector) => {
       document.body.style.overflow = "";
     }
   });
-
 };
 
 export default modalThanks;
