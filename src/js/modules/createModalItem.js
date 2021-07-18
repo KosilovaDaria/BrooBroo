@@ -1,11 +1,17 @@
-const createModalItem = (product,modalSelector,modalContentSelector) => {
+import createBtnCart from './createBtnCart';
+
+const createModalItem = (product,modalSelector,modalContentSelector,modalWrapSelector) => {
 
   const modal = document.querySelector(modalSelector),
-        modalContent = document.querySelector(modalContentSelector);
+        modalContent = document.querySelector(modalContentSelector),
+        modalWrap = document.querySelector(modalWrapSelector);
+        // const btnCart = document.querySelector('.btn-cart');
   
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
-  modalContent.innerHTML = `
+  modalContent.append(close);
+  // modalContent.append(btnCart);
+  modalWrap.innerHTML = `
     <div class="item wrapper">
       <div class="item__img">
         <div class="item__img--main">
@@ -34,7 +40,7 @@ const createModalItem = (product,modalSelector,modalContentSelector) => {
             <p><span>Рекомендации по возрасту:</span>  ${product.recomends}</p>
           </div>
       </div>
-    </div>
+
   `;  
 
   //Переключение миниатюр
@@ -42,12 +48,25 @@ const createModalItem = (product,modalSelector,modalContentSelector) => {
         modalItemImgMain = document.querySelector('.item__img--main img'),
         btnCart = document.querySelector('[data-btn]');
 
-  btnCart.addEventListener('click', () => {
-    localStorage.setItem('toy',`${product.title}`);
-    localStorage.setItem('subscr',`${product.subtitle}`);
-    localStorage.setItem('quantity', 1);
-    localStorage.setItem('price',`${product.price}`);
-  });
+  // btnCart.addEventListener('click', () => {
+  //   // let order = {
+  //   //   'toy':`${product.title}`,
+  //   //   'subscr':`${product.subtitle}`,
+  //   //   'quantity': 1,
+  //   //   'price':`${product.price}`
+  //   // };
+
+  //   // localStorage.setItem ("order", JSON.stringify(order));
+  //   // order = JSON.parse (localStorage.getItem ("order"));
+  //   // console.log(typeof order); // объект
+  //   // console.log(order);
+  
+  //   localStorage.setItem('toy',`${product.title}`);
+  //   localStorage.setItem('subscr',`${product.subtitle}`);
+  //   localStorage.setItem('quantity', 1);
+  //   localStorage.setItem('price',`${product.price}`);
+  //   createBtnCart();
+  // });
 
   modalItemImgMini.forEach (item => {
     const imgMiniSrc = item.src;

@@ -3,7 +3,7 @@
     {
       "id": 0,
       "isAvailable": true,
-      "src": "assets/img/balls.jpg",
+      "src": "./assets/img/balls.jpg",
       "alt": "Шары",
       "minies": ["assets/img/balls_0.jpg","assets/img/balls_1.jpg","assets/img/balls_2.jpg","assets/img/balls_3.jpg"],
       "title": "Шары на тарелочках в чаше",
@@ -18,7 +18,7 @@
     {
       "id": 1,
       "isAvailable": true,
-      "src": "assets/img/dolls.jpg",
+      "src": "./assets/img/dolls.jpg",
       "alt": "Куклы",
       "minies": ["assets/img/balls_0.jpg","assets/img/balls_1.jpg","assets/img/balls_2.jpg","assets/img/balls_3.jpg"],
       "title": "Куклы-колышки в стаканчиках",

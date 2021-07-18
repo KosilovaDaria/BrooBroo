@@ -1,4 +1,5 @@
 import {getProduct} from '../services/services';
+import createBtnCart from './createBtnCart';
 
 const itemCards = () => {
   
@@ -32,6 +33,7 @@ const itemCards = () => {
       wrapItemCard.appendChild(divItemCard);
     });
   }
+  createBtnCart();
 };
 
 export default itemCards;

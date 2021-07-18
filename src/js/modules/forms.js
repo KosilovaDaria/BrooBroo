@@ -21,12 +21,7 @@ const forms = () => {
 
       const formData = new FormData(form);
       if (form.getAttribute('data-order') === "order") {
-        let order = {
-          'toy': localStorage.getItem('toy'),
-          'subscr': localStorage.getItem('subscr'),
-          'price': localStorage.getItem('price'),
-          'quantity': localStorage.getItem('quantity'),
-        };
+        let order = JSON.parse(localStorage.getItem ("order"));
         for (let key in order) {
           formData.append(key, order[key]);
         }
