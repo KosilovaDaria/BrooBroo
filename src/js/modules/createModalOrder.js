@@ -1,3 +1,5 @@
+import modalThanks from './modalThanks';
+
 const createModalOrder = (parentSelector,modalSelector,modalContentSelector,modalWrapSelector,closeSelector,formSelector) => {
 
   const parent = document.querySelector(parentSelector),
@@ -11,8 +13,6 @@ const createModalOrder = (parentSelector,modalSelector,modalContentSelector,moda
   let order = JSON.parse(localStorage.getItem ("order")),
       currentQuantity = order.quantity,
       currentPrice = order.price;
-    // let currentQty = `${order.quantity}`,
-    //   currentPrice = `${order.price}`;
 
   parent.style.display = "none";
   modal.style.display = "block";
@@ -46,13 +46,14 @@ let currentCount =1;
 
 document.querySelector('[data-q]').addEventListener('click', (e) => {
   const target = e.target; 
-  // console.log(target);
     const quantity = document.querySelector('[data-qty]'),
     prices = document.querySelectorAll('[data-price]');
+    const btnCartMain = document.querySelector('.btn-cart');
+
     if(target.classList.contains('plus')) {
       order.quantity = order.quantity+1;
       order.price = currentPrice+order.price;
-    }if (target.classList.contains('minus')){
+    }if (target.classList.contains('minus') && currentCount>1){
       order.quantity = order.quantity-1;
       order.price = order.price-currentPrice;
     }
@@ -61,8 +62,18 @@ document.querySelector('[data-q]').addEventListener('click', (e) => {
         price.textContent=order.price;
       });
       currentCount=order.quantity;
-      localStorage.setItem ("order", JSON.stringify(order));
+      btnCartMain.textContent=currentCount;
 
+      localStorage.setItem ("order", JSON.stringify(order));
+      
+  });
+
+  document.querySelector('.btn-rmv').addEventListener('click', (e) => {
+    const target = e.target; 
+
+    console.log(target);
+    localStorage.removeItem("order");
+    modalThanks('.modal-order','.modal-thanks');
   });
 };
 

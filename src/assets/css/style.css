@@ -701,16 +701,23 @@ form > p {
   display: none;
   border: none;
   box-shadow: 0.1px 0.1px 5px 2px rgba(37, 49, 90, 0.3);
-  padding: 13px 20px;
+  background-image: url("../img/Cart_icon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+  color: #C9E1F2;
+  padding: 16px 20px 14px 20px;
   border-radius: 50%;
   background-color: #ffffff;
   font-size: 16px;
+  font-family: "Lato-Medium";
   position: sticky;
   -webkit-position: sticky;
   top: 20px;
   left: 100%;
   /* -webkit-transform: translateX(-50%);
   transform: translateX(-50%); */
+ 
+
 }
 .btn-cart :hover {
   background-color: #0D75D7;

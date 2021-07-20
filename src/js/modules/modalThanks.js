@@ -5,6 +5,7 @@ const modalThanks = (parentSelector, modalSelector) => {
   parent.style.display = "none";
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
+  
 
     //закрытие модалки по внешней области
   modal.addEventListener('click', (e) => {

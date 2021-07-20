@@ -2,8 +2,13 @@ import createModalItem from './createModalItem';
 import createModalOrder from './createModalOrder';
 import {getProduct} from '../services/services';
 
+
+// import btnCart from './btnCart';
+
 const openModal = (parentSelector,attribute) => {
   const parent = document.querySelector(parentSelector);
+  const btnCartMain = document.querySelector('[data-cart]');
+
 
   parent.addEventListener('click', (e) => {
     const target = e.target;
@@ -28,6 +33,8 @@ const openModal = (parentSelector,attribute) => {
               'price':`${product.price}`*1,
               'img':`${product.src}`,
             };
+            // let order = [`${product.title}`,`${product.subtitle}`,1,`${product.price}`*1,`${product.src}`];
+             
 
             localStorage.setItem ("order", JSON.stringify(order));
             order = JSON.parse(localStorage.getItem ("order"));
@@ -36,12 +43,19 @@ const openModal = (parentSelector,attribute) => {
             // console.log(order.toy);
           
             createModalOrder('.modal-item', '.modal-order','.modal-order__content','.modal-order__wrap', '.modal-order__close','.form__order'); 
-
+            btnCartMain.style.display = "block";
+           
           } 
         })
         .catch(error => console.log(error));
-    }
+    } else if (target.classList.contains('btn-cart')) {
+      // } else if (target.getAttribute('data-cart')) {
+      console.log(target);
+      createModalOrder('.modal-item', '.modal-order','.modal-order__content','.modal-order__wrap', '.modal-order__close','.form__order'); 
+
+    } 
   });
+
 };
 
 export default openModal;

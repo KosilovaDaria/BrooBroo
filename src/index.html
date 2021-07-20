@@ -39,25 +39,11 @@
       </div>
   </header>
   <main class="wrapper">
-    <button class="btn-cart" data-cart><img src="assets/img/Cart_icon.png" alt="Cart"></button>
+    <button class="btn-cart" data-cart='cart'>1</button>
     <section id = "toys">
       <span class="tagline">Бру-бру - это развивающие игрушки, сделанные вручную <br>
           из натурального дерева с любовью для ваших детей! </span>
-      <div class="item-card__wrap">
-        <!-- <div class="item-card">
-          <img class="item-card__img" src="assets/img/balls.jpg" alt="">
-          <div class="item-card__title">
-            <h4><a href="item.html">Радуга Монтессори</a> </h4>
-            <span>2500 р</span>
-          </div>
-          <div class="item-card__text">
-            <span>12 элементов<br>Радужные цвета</span>
-            <button class="button btn">В корзину</button>
-          </div>
-        </div> -->
-      
-        </div> 
-       
+      <div class="item-card__wrap"></div> 
       </div>
     </section>
     <section class="about" id = "about" >
@@ -107,10 +93,10 @@
         <p>Если у Вас есть вопросы или предложения - напишите нам, мы любим живое общение и новые идеи!</p>
       </div>
       <form class = "form" id="form">
-        <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
-        <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
-        <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
-        <input class = "form__text-area" name="text" type="textarea" placeholder="Ваш вопрос">
+        <input class = "form__input" name="name" type="text" placeholder="Ваше имя" required="required">
+        <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail" required="required">
+        <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон" required="required">
+        <input class = "form__text-area" name="text" type="textarea" placeholder="Ваш вопрос" required="required">
         <button class="button submit__btn"  type="submit" name="submit">Отправить</button>
         <p class="form__notice">Нажимая на кнопку Вы даете согласие на обработку персональных данных
         и соглашаетесь с политикой конфиденциальности</p>
@@ -133,7 +119,7 @@
   <div class="modal-item">
     <div class="modal-item__content">
       <button type="button" class="modal-item__close"><strong>&times;</strong></button> 
-      <button class="btn-cart"><img src="assets/img/Cart_icon.png" alt="Cart"></button>
+      <!-- <button class="btn-cart" data-cart='cart'></button> -->
       <div class="model-item__wrap">
       </div>
     </div>
@@ -147,25 +133,37 @@
       <div class="modal-order__wrap" data-order='order'>
       </div>
       <form class = "form form__order" id="form" name="order" data-order='order'>
-        <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
-        <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
-        <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
+        <input class = "form__input" name="name" type="text" placeholder="Ваше имя" required="required">
+        <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail" required="required">
+        <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон" required="required">
         <button class="button submit__btn"  type="submit" name="submit">Оформить заказ</button>
       </form>
     </div>
   </div>
   
- <!-- Thanks -->
+ <!-- Thanks-order -->
   <div class="modal-thanks">
     <div class="modal-thanks__content">
       <button type="button" class="modal-thanks__close"><strong>&times;</strong></button>
       <div class="modal-thanks__img">
         <img src="assets/img/Logo_Broo.png" alt="Logo" width="125">
       </div>
-      <h2>Спасибо!</h2>
-      <p>Ваше сообщение успешно отправлено! <br>
-        Мы свяжемся с вами в ближайшее время.</p>
-      <button class="button">На главную</button>
+      <h2>Спасибо за заказ!</h2>
+      <p>Мы уже обрабатываем Ваш заказ!<br>
+        Для уточнения деталей оплаты и доставки мы свяжемся с вами в ближайшее время.</p>
+    </div>
+  </div>
+
+   <!-- Thanks-form -->
+   <div class="modal-thanks">
+    <div class="modal-thanks__content">
+      <button type="button" class="modal-thanks__close"><strong>&times;</strong></button>
+      <div class="modal-thanks__img">
+        <img src="assets/img/Logo_Broo.png" alt="Logo" width="125">
+      </div>
+      <h2>Спасибо за заказ!</h2>
+      <p>Мы уже обрабатываем Ваш заказ!<br>
+        Для уточнения деталей оплаты и доставки мы свяжемся с вами в ближайшее время.</p>
     </div>
   </div>
 

@@ -28,6 +28,7 @@ const forms = () => {
       }
       console.log(formData);
       
+      
       postData('assets/server.php', formData) 
           .then(res => {
             console.log(res);
@@ -35,6 +36,7 @@ const forms = () => {
           .finally(() => { 
             clearInputs();
             modalThanks('.modal-order','.modal-thanks');
+            localStorage.removeItem("order");
           });
       });  
   });
