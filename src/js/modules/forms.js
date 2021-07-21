@@ -1,4 +1,4 @@
-import modalThanks from './modalThanks';
+import modalNotice from './modalNotice';
 import checkNumInputs from './checkNumInputs';
 import {postData} from '../services/services';
 
@@ -31,12 +31,17 @@ const forms = () => {
       
       postData('assets/server.php', formData) 
           .then(res => {
-            console.log(res);
+            if (form.getAttribute('data-order') === "order"){
+              modalNotice('.modal-order','[data-order = "thanks"]');
+            } else {
+              modalNotice('.modal-order','[data-form = "thanks"]');
+            }
           })
+          .catch(error => modalNotice('.modal-order','[data-err = "err"]'))
           .finally(() => { 
             clearInputs();
-            modalThanks('.modal-order','.modal-thanks');
             localStorage.removeItem("order");
+            document.querySelector('[data-cart]').style.display = "none";
           });
       });  
   });

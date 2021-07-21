@@ -1,5 +1,5 @@
 import {getProduct} from '../services/services';
-// import createBtnCart from './createBtnCart';
+import modalThanks from './modalNotice';
 
 const itemCards = () => {
   
@@ -9,7 +9,7 @@ const itemCards = () => {
     .then(res => {
       createItemCard(res.items);
     })
-    .catch(error => console.log(error));
+    .catch(error => modalThanks('.modal-order','[data-err = "err"]'));
 
   function createItemCard(response) {
     response.forEach((item) => {
@@ -33,7 +33,6 @@ const itemCards = () => {
       wrapItemCard.appendChild(divItemCard);
     });
   }
-  // createBtnCart();
 };
 
 export default itemCards;

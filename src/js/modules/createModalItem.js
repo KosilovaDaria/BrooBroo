@@ -1,4 +1,3 @@
-
 const createModalItem = (product,modalSelector,modalContentSelector,modalWrapSelector) => {
 
   const modal = document.querySelector(modalSelector),
@@ -26,7 +25,7 @@ const createModalItem = (product,modalSelector,modalContentSelector,modalWrapSel
         <div class="item__text--header">
           <h1>${product.title}</h1>
           <span>${product.subtitle}</span>
-          <h4><span>${product.price} руб.</span></h4>
+          <h4>${product.price} ₽</h4>
           <button class="button" data-btn=${product.id}>В корзину</button>
         </div>
         <div class="item__text--descrip">
