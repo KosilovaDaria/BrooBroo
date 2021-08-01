@@ -11,19 +11,19 @@ const createModalItem = (product,modalSelector,modalContentSelector,modalWrapSel
   modalWrap.innerHTML = `
     <div class="item wrapper">
       <div class="item__img">
+      <div class="item__img--mini">
+      <img class="img-active" data-img = "0" src=${product.minies[0]} alt="">
+      <img data-img = "1" src=${product.minies[1]} alt="">
+      <img data-img = "2" src=${product.minies[2]} alt="">
+      <img data-img = "3" src=${product.minies[3]} alt="">
+    </div>
         <div class="item__img--main">
           <img class="img--main" src= ${product.src} alt="">
-        </div>
-        <div class="item__img--mini">
-          <img class="img-active" data-img = "0" src=${product.minies[0]} alt="">
-          <img data-img = "1" src=${product.minies[1]} alt="">
-          <img data-img = "2" src=${product.minies[2]} alt="">
-          <img data-img = "3" src=${product.minies[3]} alt="">
         </div>
       </div>
       <div class="item__text">
         <div class="item__text--header">
-          <h1>${product.title}</h1>
+          <h4>${product.title}</h4>
           <span>${product.subtitle}</span>
           <h4>${product.price} ₽</h4>
           <button class="button" data-btn=${product.id}>В корзину</button>
@@ -34,7 +34,7 @@ const createModalItem = (product,modalSelector,modalContentSelector,modalWrapSel
           <div class="item__text--info">
             <p><span>Материалы:</span> ${product.material}</p>
             <p><span>Размеры:</span> ${product.size}</p>
-            <p><span>Рекомендации по возрасту:</span>  ${product.recomends}</p>
+            <p><span>Возраст:</span>  ${product.recomends}</p>
           </div>
       </div>
 

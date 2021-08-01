@@ -10,82 +10,80 @@
 </head>
 <body>
   <header class="header" id="main">
-      <div class="header__wrapper">
-        <nav class="header__nav">
-          <div class="header__nav--logo">
-            <a class="" href="#main"><img src="./assets/img/logo_white.png" alt="Logo" width="125"></a>
-          </div>
-          <ul class="header__nav--menu">
-            <li><a href="#toys">Игрушки</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#materials">О материалах</a></li>
-            <li><a href="#paydeliv">Оплата и доставка</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-          </ul>
-          <div class="header__nav--contacts">
-            <ul class="contacts__nav--smedia">
-              <li><a href="https://www.instagram.com/" target="_blank"></a></li>
-              <li><a href="https://vk.com/" target="_blank"></a></li>
-              <li><a href="https://www.facebook.com/" src="./assets/img/Insta.png" target="_blank"></a></li>
-            </ul>
-          </div>
-        </nav>
-        <div class="header__title">
-          <h1>broo broo toys</h1>
-          <h3>Развивающие игрушки из дерева</h3>
+      <nav>
+        <div class="burger-icon wrapper">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      <div class="header__nav wrapper">
+        <img src="./assets/img/logo_white.png" alt="Logo" width="125">
+        <ul class="header__nav--menu">
+          <li><a href="#toys">Игрушки</a></li>
+          <li><a href="#about">О нас и материалах</a></li>
+          <li><a href="#paydeliv">Оплата и доставка</a></li>
+          <li><a href="#contacts">Связаться с нами</a></li>
+        </ul>
+        <ul class="header__nav--media">
+            <li><a href="https://www.instagram.com/broobroo.toys/?hl=ru" target="_blank"></a></li>
+            <li><a href="https://www.etsy.com/shop/BooBooToys?ref=profile_header" target="_blank"></a></li>
+        </ul>
       </div>
+    </nav>
+    <h1>broo broo toys</h1>
+    <h3>Развивающие игрушки из дерева</h3>
+      
   </header>
-  <main class="wrapper">
+
+    <main >
     <button class="btn-cart" data-cart='cart'>1</button>
     <section id = "toys">
       <span class="tagline">Бру-бру - это развивающие игрушки, сделанные вручную <br>
           из натурального дерева с любовью для ваших детей! </span>
-      <div class="item-card__wrap"></div> 
-      </div>
+      <h2 class="item-card__rainbow">Радуги монтессори</h2>
+      <div class="item-card__wrap wrapper" data-toy="rainbow"></div>
+      <h2 class="item-card__sort">Наборы для сортировки по цветам</h2>
+      <div class="item-card__wrap wrapper" data-toy="sort"></div>
+      <h2 class="item-card__wood">Натуральное дерево</h2>
+      <div class="item-card__wrap wrapper" data-toy="wood"></div>
     </section>
-    <section class="about" id = "about" >
-      <div class="about__wrap">
-        <div class="about__text">
-          <h2>О нас</h2>
-          <p >Привет, я Ксения и я молодая мама!</br>Все игрушки делаю с любовью своими руками и мечтаю о большом производстве разнообразных игрушек из дерева!
-          </br>Почему “Бру-Бру”? Это ласковое прозвище, которое мы дали нашему сыну, когда он был малышом. Именно сын стал идейным вдохновителем и является главным тестировщиком всех игрушек “Бру-Бру”!</p>
-        </div>
+    <section class="about wrapper" id = "about" >
+      <div class="about__text">
+        <h2>О нас</h2>
+        <p>Привет, меня зовут Ксения! Своими руками я делаю игрушки из натурального дерева. Сейчас я в самом начале пути и когда-нибудь открою большое производство классных деревянных игрушек!</p>
+        <p> Почему “Бру-Бру”? Это ласковое прозвище нашего сына, которое мы дали, когда он был малышом. Именно сын стал идейным вдохновителем и главным тестировщиком всех деревянных игрушек “Бру-Бру”!</p>
       </div>
-      <div class="about__img">
-        <img src="./assets/img/about.png" alt="">
-      </div>
+      <img src="./assets/img/about.png" alt="">
     </section>
-    <section class="materials" id = "materials" >
-      <div class="materials__img">
-        <img src="./assets/img/materials.jpeg" alt="">
-      </div>
-      <div class="materials__wrap">
-        <div class="materials__text">
+    <section class="materials wrapper" id = "materials" >
+      <img src="./assets/img/materials.jpeg" alt="">
+      <div class="materials__text">
           <h2>О материалах</h2>
-          <p>Все игрушки я делаю из липы.</br> Эта светлая порода дерева, которая не оставляет заноз. Но липа мягкая, поэтому если как следует треснуть по игрушке машинкой может остаться вмятина. Покрываются игрушки цветным воском</br>или маслом Biofa по стандарту EN 71 (требования безопасности игрушек).</br>Не имеет запаха и устойчив к слюне!</br>Лично проверяла на маленьком грызуне.</p>
+          <p>Все игрушки я делаю из липы. Эта светлая порода дерева, которая не оставляет заноз. Но липа мягкая, поэтому если как следует треснуть по игрушке машинкой может остаться вмятина. Покрываются игрушки цветным воском и органическим маслом Biofa с учетом всех требований  <a href="https://docs.cntd.ru/document/1200139534" target="_blank">стандарта безопасности игрушек EN 71.</a>Не имеет запаха и устойчив к слюне!
+          Лично проверяла на маленьком карапузе.</p>
         </div>
       </div>
     </section>
-    <section class="pay-deliv" id="paydeliv">
-      <div class="pay-deliv__pay">
+    <section class="pay-deliv wrapper" id="paydeliv">
+      <div class="pay">
         <h2>Оплата</h2>
-        <div class="pay-deliv__pay--text">
+        <div class="pay--text">
           <p>Оплата производится после подтверждения заказа, оформленного на сайте. Заказ можно оплатить сразу или при получении переводом на карту Тинькофф или с использованием системы PayPal.</p>
         </div>
       </div>
-      <div class="pay-deliv__deliv">
+      <div class="deliv">
         <h2>Доставка</h2>
-        <div class="pay-deliv__deliv--text">
-          <p>Заказы по Санкт-Петербургу и области доставляются любой транспортной компанией (на Ваш выбор) в течение 1-2 дней.</br>В пределах КАД - 300 руб, в пригороды от 300 до 600 руб.</br>Доставка в другие города осуществляется почтой России.</p>
+        <div class="deliv--text">
+          <p>Заказы по Санкт-Петербургу и Ленинградской Области доставляются в течение 1-2 дней транспортной компанией. </p>
+          <p> В пределах КАД - 300 руб, в пригороды от 300 до 600 руб. Доставка в другие города осуществляется почтой России.</p>
         </div>
       </div>
     </section>
 
-    <section class="contacts" id="contacts">
-      <h2>Свяжитесь с нами по любым вопросам</h2>
-      <div class="contacts__text">
-        <p>Если у Вас есть вопросы или предложения - напишите нам. </br> Мы любим живое общение и новые идеи!</p>
+    <section class="contacts wrapper" id="contacts">
+      <h2>Свяжитесь с нами</h2>
+      <p class="contacts__text">
+        Если у Вас есть вопросы или предложения - напишите нам. </br> Мы любим живое общение и новые идеи!</p>
       </div>
       <form class = "form" id="form">
         <input class = "form__input" name="name" type="text" placeholder="Ваше имя" required="required">
