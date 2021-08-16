@@ -21,7 +21,7 @@ const openModal = (parentSelector,attribute) => {
             const productId = res.items[idd].id;
             // console.log(prod + " - Ответ от сервера c ID");
             if(idd == productId && attribute == ['data-id']) {
-              console.log(idd);
+              // console.log(idd);
               createModalItem(product, '.modal-item', '.modal-item__content','.model-item__wrap');
             } else if (attribute == ['data-btn']) {
               let order = {
@@ -31,13 +31,9 @@ const openModal = (parentSelector,attribute) => {
                 'price':`${product.price}`*1,
                 'img':`${product.src}`,
               };
-              // let order = [`${product.title}`,`${product.subtitle}`,1,`${product.price}`*1,`${product.src}`];
   
               localStorage.setItem ("order", JSON.stringify(order));
               order = JSON.parse(localStorage.getItem ("order"));
-              // console.log(typeof order); // объект
-              // console.log(order);
-              // console.log(order.toy);
             
               createModalOrder('.modal-item', '.modal-order','.modal-order__content','.modal-order__wrap', '.modal-order__close','.form__order'); 
               btnCartMain.style.display = "block";
@@ -46,7 +42,7 @@ const openModal = (parentSelector,attribute) => {
           })
           .catch(error => modalNotice('.modal-order','[data-err = "err"]'));
       } else if (target.classList.contains('btn-cart')) {
-        console.log(target);
+        // console.log(target);
         createModalOrder('.modal-item', '.modal-order','.modal-order__content','.modal-order__wrap', '.modal-order__close','.form__order'); 
   
       } 

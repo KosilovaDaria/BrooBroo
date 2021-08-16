@@ -5,7 +5,6 @@ const openBurger = (burgerTriggerSelector, burgerMenuSelector) => {
   burgerTrigger.addEventListener('click', () => {
     burgerMenu.classList.toggle('show');
     burgerTrigger.classList.toggle('active');
-    // document.querySelector('.header').classList.toggle('dark');
   
 });
 };
