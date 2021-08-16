@@ -6,7 +6,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 
 
-
 var paths = {
   html: {
     src: 'src/*.html',
@@ -25,6 +24,7 @@ var paths = {
     dest: 'dist/assets'
   }
 };
+
 
 // var paths = {
 //   html: {

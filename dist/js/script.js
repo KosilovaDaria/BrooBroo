@@ -100,7 +100,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_openModals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/openModals */ "./src/js/modules/openModals.js");
 /* harmony import */ var _modules_closeModals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/closeModals */ "./src/js/modules/closeModals.js");
 /* harmony import */ var _modules_openBurger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/openBurger */ "./src/js/modules/openBurger.js");
+<<<<<<< HEAD
 // console.log(2);
+=======
+console.log(2);
+>>>>>>> 355c5bf25cac4c27fb64dc38ca58c7cc781d08e6
 
 
 
@@ -354,9 +358,15 @@ const forms = () => {
         for (let key in order) {
           formData.append(key, order[key]);
         }
+<<<<<<< HEAD
       } // console.log(formData);
 
 
+=======
+      }
+
+      console.log(formData);
+>>>>>>> 355c5bf25cac4c27fb64dc38ca58c7cc781d08e6
       Object(_services_services__WEBPACK_IMPORTED_MODULE_2__["postData"])('assets/server.php', formData).then(res => {
         if (form.getAttribute('data-order') === "order") {
           Object(_modalNotice__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal-order', '[data-order = "thanks"]');
@@ -399,7 +409,11 @@ const itemCards = () => {
   }).catch(error => Object(_modalNotice__WEBPACK_IMPORTED_MODULE_1__["default"])('.modal-order', '[data-err = "err"]'));
 
   function createItemCard(response) {
+<<<<<<< HEAD
     // console.log(response);
+=======
+    console.log(response);
+>>>>>>> 355c5bf25cac4c27fb64dc38ca58c7cc781d08e6
     response.forEach(item => {
       const divItemCard = document.createElement('div');
       divItemCard.classList.add('item-card');
@@ -473,7 +487,11 @@ const openBurger = (burgerTriggerSelector, burgerMenuSelector) => {
         burgerMenu = document.querySelector(burgerMenuSelector);
   burgerTrigger.addEventListener('click', () => {
     burgerMenu.classList.toggle('show');
+<<<<<<< HEAD
     burgerTrigger.classList.toggle('active');
+=======
+    burgerTrigger.classList.toggle('active'); // document.querySelector('.header').classList.toggle('dark');
+>>>>>>> 355c5bf25cac4c27fb64dc38ca58c7cc781d08e6
   });
 };
 
@@ -515,7 +533,11 @@ const openModal = (parentSelector, attribute) => {
           const productId = res.items[idd].id; // console.log(prod + " - Ответ от сервера c ID");
 
           if (idd == productId && attribute == ['data-id']) {
+<<<<<<< HEAD
             // console.log(idd);
+=======
+            console.log(idd);
+>>>>>>> 355c5bf25cac4c27fb64dc38ca58c7cc781d08e6
             Object(_createModalItem__WEBPACK_IMPORTED_MODULE_0__["default"])(product, '.modal-item', '.modal-item__content', '.model-item__wrap');
           } else if (attribute == ['data-btn']) {
             let order = {
@@ -532,7 +554,11 @@ const openModal = (parentSelector, attribute) => {
           }
         }).catch(error => Object(_modalNotice__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-order', '[data-err = "err"]'));
       } else if (target.classList.contains('btn-cart')) {
+<<<<<<< HEAD
         // console.log(target);
+=======
+        console.log(target);
+>>>>>>> 355c5bf25cac4c27fb64dc38ca58c7cc781d08e6
         Object(_createModalOrder__WEBPACK_IMPORTED_MODULE_1__["default"])('.modal-item', '.modal-order', '.modal-order__content', '.modal-order__wrap', '.modal-order__close', '.form__order');
       }
     });
