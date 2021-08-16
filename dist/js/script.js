@@ -97,17 +97,72 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_itemCards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/itemCards */ "./src/js/modules/itemCards.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
-/* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
-console.log(7);
+/* harmony import */ var _modules_openModals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/openModals */ "./src/js/modules/openModals.js");
+/* harmony import */ var _modules_closeModals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/closeModals */ "./src/js/modules/closeModals.js");
+/* harmony import */ var _modules_openBurger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/openBurger */ "./src/js/modules/openBurger.js");
+// console.log(2);
 
 
- // import modalThanks from './modules/modalThanks';
-// window.addEventListener('DOMContentLoaded', () => {
-// });
+
+
 
 Object(_modules_itemCards__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_modules_openModals__WEBPACK_IMPORTED_MODULE_2__["default"])('.item-card__wrap', 'data-id');
+Object(_modules_openModals__WEBPACK_IMPORTED_MODULE_2__["default"])('.item-card__wrap', 'data-id');
+Object(_modules_openModals__WEBPACK_IMPORTED_MODULE_2__["default"])('.modal-item', 'data-btn');
+Object(_modules_openModals__WEBPACK_IMPORTED_MODULE_2__["default"])('.btn-cart');
+Object(_modules_closeModals__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-item', '.modal-item__close', '.model-item__wrap');
+Object(_modules_closeModals__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-order', '.modal-order__close', '.modal-order__wrap');
+Object(_modules_closeModals__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-notice', '.modal-notice__close', '.modal-notice__content');
 Object(_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])();
-Object(_modules_modals__WEBPACK_IMPORTED_MODULE_2__["default"])();
+Object(_modules_openBurger__WEBPACK_IMPORTED_MODULE_4__["default"])('.burger-icon', '.header__nav');
+
+/***/ }),
+
+/***/ "./src/js/modules/checkNumInputs.js":
+/*!******************************************!*\
+  !*** ./src/js/modules/checkNumInputs.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const checkNumInputs = selector => {
+  const numInputs = document.querySelectorAll(selector);
+  numInputs.forEach(item => {
+    item.addEventListener('input', () => {
+      item.value = item.value.replace(/\D/, '');
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (checkNumInputs);
+
+/***/ }),
+
+/***/ "./src/js/modules/closeModals.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/closeModals.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const closeModal = (modalSelector, closeSelector, modalContentSelector) => {
+  const modal = document.querySelector(modalSelector),
+        modalContent = document.querySelector(modalContentSelector),
+        close = document.querySelector(closeSelector);
+  modal.append(close);
+  close.addEventListener('click', () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+    modalContent.innerHTML = "";
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (closeModal);
 
 /***/ }),
 
@@ -120,45 +175,45 @@ Object(_modules_modals__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const createModalItem = (product, modalSelector, modalContentSelector, closeSelector) => {
+const createModalItem = (product, modalSelector, modalContentSelector, modalWrapSelector) => {
   const modal = document.querySelector(modalSelector),
         modalContent = document.querySelector(modalContentSelector),
-        close = document.querySelector(closeSelector);
+        modalWrap = document.querySelector(modalWrapSelector);
+  const btnCartItem = document.querySelector('.btn-cart');
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
-  modal.append(close);
-  modalContent.innerHTML = `
-  <div class="item wrapper">
-    <div class="item__img">
-      <div class="item__img--main">
-        <img class="img--main" src= ${product.src} alt="">
-      </div>
+  modalWrap.innerHTML = `
+    <div class="item wrapper">
+      <div class="item__img">
       <div class="item__img--mini">
-        <img class="img-active" data-img = "0" src=${product.minies[0]} alt="">
-        <img data-img = "1" src=${product.minies[1]} alt="">
-        <img data-img = "2" src=${product.minies[2]} alt="">
-        <img data-img = "3" src=${product.minies[3]} alt="">
-      </div>
+      <img class="img-active" data-img = "0" src=${product.minies[0]} alt="">
+      <img data-img = "1" src=${product.minies[1]} alt="">
+      <img data-img = "2" src=${product.minies[2]} alt="">
+      <img data-img = "3" src=${product.minies[3]} alt="">
     </div>
-    <div class="item__text">
-      <div class="item__text--header">
-        <h1>${product.title}</h1>
-        <span>${product.subtitle}</span>
-        <h4><span>${product.price}</span></h4>
-        <button class="button" data-btn=${product.id}>В корзину</button>
+        <div class="item__img--main">
+          <img class="img--main" src= ${product.src} alt="">
+        </div>
+      </div>
+      <div class="item__text">
+        <div class="item__text--header">
+          <h4>${product.title}</h4>
+          <span>${product.subtitle}</span>
+          <h4>${product.price} ₽</h4>
+          <button class="button" data-btn=${product.id}>В корзину</button>
+        </div>
+        <div class="item__text--descrip">
+          <p>${product.description}</p>
+        </div>
+          <div class="item__text--info">
+            <p><span>Материалы:</span> ${product.material}</p>
+            <p><span>Размеры:</span> ${product.size}</p>
+            <p><span>Возраст:</span>  ${product.recomends}</p>
+          </div>
       </div>
 
-      <div class="item__text--descrip">
-        <p>${product.description}</p>
-      </div>
-        <div class="item__text--info">
-          <p><span>Материалы:</span> ${product.material}</p>
-          <p><span>Размеры:</span> ${product.size}</p>
-          <p><span>Рекомендации по возрасту:</span>  ${product.recomends}</p>
-        </div>
-    </div>
-  </div>
-  `;
+  `; //Переключение миниатюр
+
   const modalItemImgMini = document.querySelectorAll('.item__img--mini [data-img]'),
         modalItemImgMain = document.querySelector('.item__img--main img');
   modalItemImgMini.forEach(item => {
@@ -171,11 +226,6 @@ const createModalItem = (product, modalSelector, modalContentSelector, closeSele
         modalItemImgMain.src = imgMiniSrc;
       }
     });
-  });
-  close.addEventListener('click', () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-    modalContent.innerHTML = "";
   });
 };
 
@@ -192,41 +242,73 @@ const createModalItem = (product, modalSelector, modalContentSelector, closeSele
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const createModalOrder = (product, parentSelector, modalSelector, modalContentSelector, closeSelector, formSelector) => {
+/* harmony import */ var _modalNotice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modalNotice */ "./src/js/modules/modalNotice.js");
+
+
+const createModalOrder = (parentSelector, modalSelector, modalContentSelector, modalWrapSelector, closeSelector, formSelector) => {
   const parent = document.querySelector(parentSelector),
         modal = document.querySelector(modalSelector),
         modalContent = document.querySelector(modalContentSelector),
+        modalWrap = document.querySelector(modalWrapSelector),
         close = document.querySelector(closeSelector),
         form = document.querySelector(formSelector);
+  let order = JSON.parse(localStorage.getItem("order")),
+      currentQuantity = order.quantity,
+      currentPrice = order.price;
   parent.style.display = "none";
   modal.style.display = "block";
+  modalContent.append(close);
   document.body.style.overflow = "hidden";
-  modal.append(close);
-  modalContent.innerHTML = `
-      <h2>Ваш заказ</h2>
-      <!-- <button class="button">Продолжить покупки</button> -->
-        <div class="modal-order__wrap">
-          <div class="modal-order__item">
-            <div class="modal-order__item--img"><img src= ${product.src} alt="" width="120"></div>
-            <div class="modal-order__item--info">
-              <h4>${product.title}</h4>
-              <span>${product.subtitle}</span>
-              <p>${product.material}</p>
-            </div>
-            <button class="button">1</button>
-            <p>${product.price} ₽</p>
-            <button class="button btn__order">&times;</button>
-          </div>
-          <div class="modal-order__total">
-          <p>Товаров на сумму:${product.price} ₽</p>
-          </div>
-        </div>
-  `;
-  modal.append(form);
-  close.addEventListener('click', () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-    modalContent.innerHTML = "";
+  modalWrap.innerHTML = `
+    <div class="modal-order__item">  
+      <div class="modal-order__item--info">
+        <h4 >${order.toy}</h4>
+        <span>${order.subscr}</span>
+      </div>
+      <div class="wrap-qnty" data-q>
+        <button class="btn-qnty minus">&ndash;</button>
+        <p data-qty>${currentQuantity}</p>
+        <button class="btn-qnty plus">+</button>
+      </div>
+      <p data-price>${currentPrice} ₽</p>
+      <button class="btn-rmv">&times;</button>
+    </div>
+    <div class="modal-order__total">
+      <p>Товаров на сумму: <p data-price> ${currentPrice} ₽</p></p>
+    </div>`;
+  modalContent.append(form); //Изменение кол-ва позиций
+
+  let currentCount = 1;
+  const btnCartMain = document.querySelector('.btn-cart');
+  document.querySelector('[data-q]').addEventListener('click', e => {
+    const target = e.target,
+          quantity = document.querySelector('[data-qty]'),
+          prices = document.querySelectorAll('[data-price]');
+
+    if (target.classList.contains('plus')) {
+      order.quantity = order.quantity + 1;
+      order.price = currentPrice + order.price;
+    }
+
+    if (target.classList.contains('minus') && currentCount > 1) {
+      order.quantity = order.quantity - 1;
+      order.price = order.price - currentPrice;
+    }
+
+    quantity.textContent = order.quantity;
+    prices.forEach(price => {
+      price.textContent = order.price + ' ₽';
+    });
+    currentCount = order.quantity;
+    btnCartMain.textContent = currentCount;
+    localStorage.setItem("order", JSON.stringify(order));
+  });
+  document.querySelector('.btn-rmv').addEventListener('click', e => {
+    const target = e.target;
+    console.log(target);
+    localStorage.removeItem("order");
+    Object(_modalNotice__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal-order', '[data-cart="empty"]');
+    btnCartMain.style.display = 'none';
   });
 };
 
@@ -243,39 +325,48 @@ const createModalOrder = (product, parentSelector, modalSelector, modalContentSe
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modalThanks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modalThanks */ "./src/js/modules/modalThanks.js");
+/* harmony import */ var _modalNotice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modalNotice */ "./src/js/modules/modalNotice.js");
+/* harmony import */ var _checkNumInputs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkNumInputs */ "./src/js/modules/checkNumInputs.js");
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
+
+
 
 
 const forms = () => {
   const forms = document.querySelectorAll('form'),
-        inputs = document.querySelectorAll('input'); // Отправка данных на сервер
-
-  const postData = async (url, data) => {
-    let res = await fetch(url, {
-      method: "POST",
-      body: data
-    });
-    return await res.text();
-  }; // Очистка инпутов
-
+        inputs = document.querySelectorAll('input');
+  Object(_checkNumInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('input[name = "phone"]');
 
   const clearInputs = () => {
     inputs.forEach(item => {
       item.value = '';
     });
-  }; // Сбор данных форм и отправка
-
+  };
 
   forms.forEach(form => {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const formData = new FormData(form);
-      console.log(formData);
-      postData('assets/server.php', formData).then(res => {
-        console.log(res);
-      }).finally(() => {
+
+      if (form.getAttribute('data-order') === "order") {
+        let order = JSON.parse(localStorage.getItem("order"));
+
+        for (let key in order) {
+          formData.append(key, order[key]);
+        }
+      } // console.log(formData);
+
+
+      Object(_services_services__WEBPACK_IMPORTED_MODULE_2__["postData"])('assets/server.php', formData).then(res => {
+        if (form.getAttribute('data-order') === "order") {
+          Object(_modalNotice__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal-order', '[data-order = "thanks"]');
+        } else {
+          Object(_modalNotice__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal-order', '[data-form = "thanks"]');
+        }
+      }).catch(error => Object(_modalNotice__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal-order', '[data-err = "err"]')).finally(() => {
         clearInputs();
-        Object(_modalThanks__WEBPACK_IMPORTED_MODULE_0__["default"])('.modal-order', '.modal-thanks', '.modal-thanks__close');
+        localStorage.removeItem("order");
+        document.querySelector('[data-cart]').style.display = "none";
       });
     });
   });
@@ -294,240 +385,67 @@ const forms = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
+/* harmony import */ var _modalNotice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalNotice */ "./src/js/modules/modalNotice.js");
+
+
+
 const itemCards = () => {
-  const wrapItemCard = document.querySelector('.item-card__wrap');
-
-  const getResourse = async url => {
-    const res = await fetch(url);
-
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-    }
-
-    return await res.json();
-  };
-
-  getResourse('assets/db.json').then(res => {
+  const itemCardRainbow = document.querySelector('[data-toy="rainbow"]'),
+        itemCardSort = document.querySelector('[data-toy="sort"]'),
+        itemCardWood = document.querySelector('[data-toy="wood"]');
+  Object(_services_services__WEBPACK_IMPORTED_MODULE_0__["getProduct"])('assets/db.json').then(res => {
     createItemCard(res.items);
-  }).catch(error => console.log(error));
+  }).catch(error => Object(_modalNotice__WEBPACK_IMPORTED_MODULE_1__["default"])('.modal-order', '[data-err = "err"]'));
 
   function createItemCard(response) {
+    // console.log(response);
     response.forEach(item => {
       const divItemCard = document.createElement('div');
       divItemCard.classList.add('item-card');
-      wrapItemCard.append(divItemCard);
-      divItemCard.innerHTML = `
-        <img class="item-card__img" src=${item.src} alt="${item.alt}">
-        <div class="item-card__text">
-          <h4>${item.title}</h4>
-          <span>${item.subtitle}</span>
-          <h4>${item.price} ₽</h4>
-        </div>
-     
-      `;
-      const btnId = document.createElement('button');
-      btnId.classList.add('button');
-      btnId.setAttribute('data-id', `${item.id}`);
-      btnId.textContent = "Подробнее";
-      divItemCard.append(btnId); // console.log(divItemCard);
 
-      wrapItemCard.appendChild(divItemCard);
+      function createCard(itemCard) {
+        itemCard.append(divItemCard);
+        divItemCard.innerHTML = `
+          <img src=${item.src} alt="${item.alt}">
+            <h4>${item.title}</h4>
+            <span>${item.subtitle}</span>
+            <h4>${item.price} ₽</h4>
+            <button class="button" data-id=${item.id}>Подробнее</button>
+        `;
+      }
+
+      if (item.type === 'rainbow') {
+        createCard(itemCardRainbow);
+      } else if (item.type === 'sort') {
+        createCard(itemCardSort);
+      } else if (item.type === 'wood') {
+        createCard(itemCardWood);
+      }
     });
   }
-
-  const modalItem = document.querySelector('.modal-item'),
-        modalItemContent = document.querySelector('.modal-item__content'),
-        modalItemClose = document.querySelector('.modal-item__close');
-  /* когда карточка товара создалась динамически я вешаю на родительский элемент всех карточек
-  обработчик событий с делегированием тем элементам, у которых есть атрибут с номером
-  записываю в переменную этот номер элемента по атрибуту 
-  если эта переменная есть есть то я обращаюсь к серверу и обрабатываю промис в зен
-  так что получаю айди товара по которому был клик
-  и если номер атрибута и номер айди от сервера совпадают 
-  то я вызываю функцию создания модального окна в которую передаю айди товара
-  */
-  // wrapItemCard.addEventListener('click', (e) => {
-  //   const target = e.target;
-  //   if (target.getAttribute('data-id')) {
-  //   // if (target.classList.contains('item-card__img') ) {
-  //     const idItem = target.getAttribute('data-id');
-  //    console.log(idItem+" - ID карточки товара на которую кликнула");
-  //     if (idItem) {
-  //       const getProduct = async () => {
-  //         const res = await fetch('assets/db.json');
-  //         if(!res.ok) {
-  //           throw new Error (`Could not fetch ${'assets/db.json'}, status: ${res.status}`);
-  //         }
-  //       // const product = res.json().items.find(p => p.id === id);
-  //       // return product;
-  //       return await res.json();
-  //       };
-  //       getProduct('assets/db.json', idItem)
-  //       .then((res) => {
-  //         const product = res.items[idItem];
-  //         console.log(product);
-  //         const prod = res.items[idItem].id;
-  //         console.log(prod + " - Ответ от сервера c ID");
-  //         // const product = res.items.find(p => p.id === id);
-  //         if(idItem == prod){
-  //           createModalItem(product);
-  //           // createModalOrder(product);
-  //         }
-  //       })
-  //       .catch(error => console.log(error));
-  //     }
-  //   }
-  // });
-  // modalItemClose.addEventListener('click', () => {
-  //   modalItem.style.display = "none";
-  //   document.body.style.overflow = "";
-  //   modalItemContent.innerHTML = "";
-  // });
-  // function createModalItem(response) {
-  //   modalItem.style.display = "block";
-  //   document.body.style.overflow = "hidden";
-  //   modalItem.append(modalItemClose);
-  //   modalItemContent.innerHTML = `
-  //   <div class="item wrapper">
-  //     <div class="item__img">
-  //       <div class="item__img--main">
-  //         <img class="img--main" src= ${response.src} alt="">
-  //       </div>
-  //       <div class="item__img--mini">
-  //         <img class="img-active" data-img = "0" src=${response.minies[0]} alt="">
-  //         <img data-img = "1" src=${response.minies[1]} alt="">
-  //         <img data-img = "2" src=${response.minies[2]} alt="">
-  //         <img data-img = "3" src=${response.minies[3]} alt="">
-  //       </div>
-  //     </div>
-  //     <div class="item__text">
-  //       <div class="item__text--header">
-  //         <h1>${response.title}</h1>
-  //         <span>${response.subtitle}</span>
-  //         <h4><span>${response.price}</span></h4>
-  //         <button class="button" data-btn=${response.id}>В корзину</button>
-  //       </div>
-  //       <div class="item__text--descrip">
-  //         <p>${response.description}</p>
-  //       </div>
-  //         <div class="item__text--info">
-  //           <p><span>Материалы:</span> ${response.material}</p>
-  //           <p><span>Размеры:</span> ${response.size}</p>
-  //           <p><span>Рекомендации по возрасту:</span>  ${response.recomends}</p>
-  //         </div>
-  //     </div>
-  //   </div>
-  //   `;  
-  //   const modalItemImgMini = document.querySelectorAll('.item__img--mini [data-img]'),
-  //         modalItemImgMain = document.querySelector('.item__img--main img');
-  //   modalItemImgMini.forEach (item => {
-  //     const imgMiniSrc = item.src;
-  //     item.addEventListener('click', function(e) {
-  //       const target = e.target;
-  //       this.classList.add("img-active");
-  //       if (target.getAttribute('data-img')) {
-  //         modalItemImgMain.src = imgMiniSrc;
-  //       }
-  //     });
-  //   });
-  // } 
-
-  const modalOrder = document.querySelector('.modal-order'),
-        modalOrderContent = document.querySelector('.modal-order__content'),
-        modalOrderClose = document.querySelector('.modal-order__close'); // modalItem.addEventListener('click', (e) => {
-  //   const target = e.target;
-  //   if (target.getAttribute('data-btn')) {
-  //     const idBtn = target.getAttribute('data-btn');
-  //     console.log(idBtn);
-  //     if (idBtn) {
-  //       const getProduct = async () => {
-  //         const res = await fetch('assets/db.json');
-  //         if(!res.ok) {
-  //           throw new Error (`Could not fetch ${'assets/db.json'}, status: ${res.status}`);
-  //         }
-  //       // const product = res.json().items.find(p => p.id === id);
-  //       // return product;
-  //       return await res.json();
-  //       };
-  //       getProduct('assets/db.json', idBtn)
-  //       .then((res) => {
-  //         const product = res.items[idBtn];
-  //         console.log(product);
-  //         const prod = res.items[idBtn].id;
-  //         console.log(prod + " - Ответ от сервера c ID");
-  //         // const product = res.items.find(p => p.id === id);
-  //         if(idBtn == prod){
-  //           createModalOrder(product);
-  //         }
-  //       })
-  //       .catch(error => console.log(error));
-  //     }
-  //   }
-  // });
-  //   modalOrderClose.addEventListener('click', () => {
-  //   modalOrder.style.display = "none";
-  //   document.body.style.overflow = "";
-  //   modalOrderContent.innerHTML = "";
-  // });
-  // function createModalOrder(response) {
-  //   modalItem.style.display = "none";
-  //   modalOrder.style.display = "block";
-  //   document.body.style.overflow = "hidden";
-  //   modalOrder.append(modalOrderClose);
-  //   modalOrderContent.innerHTML = `
-  //       <h2>Ваш заказ</h2>
-  //       <!-- <button class="button">Продолжить покупки</button> -->
-  //         <div class="modal-order__wrap">
-  //           <div class="modal-order__item">
-  //             <div class="modal-order__item--img"><img src= ${response.src} alt="" width="120"></div>
-  //             <div class="modal-order__item--info">
-  //               <h4>${response.title}</h4>
-  //              <span>${response.subtitle}</span>
-  //               <p>${response.material}</p>
-  //             </div>
-  //             <button class="button">1</button>
-  //             <p>${response.price} ₽</p>
-  //             <button class="button btn__order">&times;</button>
-  //           </div>
-  //           <div class="modal-order__total">
-  //           <p>Товаров на сумму:${response.price} ₽</p>
-  //           </div>
-  //         </div>
-  //         <form class = "form form__order" id="form">
-  //           <input class = "form__input" name="name" type="text" placeholder="Ваше имя">
-  //           <input class = "form__input" name="email" type="text" placeholder="Ваш e-mail">
-  //           <input class = "form__input" name="phone" type="text" placeholder="Ваш телефон">
-  //           <button class="button submit__btn"  type="submit" name="submit">Оформить заказ</button>
-  //         </form>
-  //         <!-- <button class="button">Оформить заказ</button> -->
-  //   `;
-  // }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (itemCards);
 
 /***/ }),
 
-/***/ "./src/js/modules/modalThanks.js":
+/***/ "./src/js/modules/modalNotice.js":
 /*!***************************************!*\
-  !*** ./src/js/modules/modalThanks.js ***!
+  !*** ./src/js/modules/modalNotice.js ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const modalThanks = (parentSelector, modalSelector, closeSelector) => {
+const modalNotice = (parentSelector, modalSelector) => {
   const parent = document.querySelector(parentSelector),
-        modal = document.querySelector(modalSelector),
-        close = document.querySelector(closeSelector);
+        modal = document.querySelector(modalSelector);
   parent.style.display = "none";
   modal.style.display = "block";
-  document.body.style.overflow = "hidden";
-  close.addEventListener('click', () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-  }); //закрытие модалки по внешней области
+  document.body.style.overflow = "hidden"; // modal.append(close);
+  //закрытие модалки по внешней области
 
   modal.addEventListener('click', e => {
     if (e.target === modal) {
@@ -537,14 +455,36 @@ const modalThanks = (parentSelector, modalSelector, closeSelector) => {
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (modalThanks);
+/* harmony default export */ __webpack_exports__["default"] = (modalNotice);
 
 /***/ }),
 
-/***/ "./src/js/modules/modals.js":
-/*!**********************************!*\
-  !*** ./src/js/modules/modals.js ***!
-  \**********************************/
+/***/ "./src/js/modules/openBurger.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/openBurger.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const openBurger = (burgerTriggerSelector, burgerMenuSelector) => {
+  const burgerTrigger = document.querySelector(burgerTriggerSelector),
+        burgerMenu = document.querySelector(burgerMenuSelector);
+  burgerTrigger.addEventListener('click', () => {
+    burgerMenu.classList.toggle('show');
+    burgerTrigger.classList.toggle('active');
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (openBurger);
+
+/***/ }),
+
+/***/ "./src/js/modules/openModals.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/openModals.js ***!
+  \**************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -552,52 +492,88 @@ const modalThanks = (parentSelector, modalSelector, closeSelector) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _createModalItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createModalItem */ "./src/js/modules/createModalItem.js");
 /* harmony import */ var _createModalOrder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createModalOrder */ "./src/js/modules/createModalOrder.js");
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
+/* harmony import */ var _modalNotice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modalNotice */ "./src/js/modules/modalNotice.js");
 
 
 
-const modals = () => {
-  function openModal(parentSelector, attribute) {
-    const parent = document.querySelector(parentSelector);
+
+
+const openModal = (parentSelector, attribute) => {
+  const parents = document.querySelectorAll(parentSelector);
+  const btnCartMain = document.querySelector('[data-cart]');
+  parents.forEach(parent => {
     parent.addEventListener('click', e => {
       const target = e.target;
 
       if (target.getAttribute(attribute)) {
-        const idd = target.getAttribute(attribute);
-        console.log(idd + " - ID карточки товара на которую кликнула");
+        const idd = target.getAttribute(attribute); // console.log(idd+" - ID карточки товара на которую кликнула");
 
-        if (idd) {
-          const getProduct = async () => {
-            const res = await fetch('assets/db.json');
+        Object(_services_services__WEBPACK_IMPORTED_MODULE_2__["getProduct"])('assets/db.json', idd).then(res => {
+          const product = res.items[idd]; // console.log(product);
 
-            if (!res.ok) {
-              throw new Error(`Could not fetch ${'assets/db.json'}, status: ${res.status}`);
-            }
+          const productId = res.items[idd].id; // console.log(prod + " - Ответ от сервера c ID");
 
-            return await res.json();
-          };
-
-          getProduct('assets/db.json', idd).then(res => {
-            const product = res.items[idd]; // console.log(product);
-
-            const prod = res.items[idd].id;
-            console.log(prod + " - Ответ от сервера c ID");
-
-            if (idd == prod && attribute == ['data-id']) {
-              Object(_createModalItem__WEBPACK_IMPORTED_MODULE_0__["default"])(product, '.modal-item', '.modal-item__content', '.modal-item__close');
-            } else if (attribute == ['data-btn']) {
-              Object(_createModalOrder__WEBPACK_IMPORTED_MODULE_1__["default"])(product, '.modal-item', '.modal-order', '.modal-order__content', '.modal-order__close', '.form__order');
-            }
-          }).catch(error => console.log(error));
-        }
+          if (idd == productId && attribute == ['data-id']) {
+            // console.log(idd);
+            Object(_createModalItem__WEBPACK_IMPORTED_MODULE_0__["default"])(product, '.modal-item', '.modal-item__content', '.model-item__wrap');
+          } else if (attribute == ['data-btn']) {
+            let order = {
+              'toy': `${product.title}`,
+              'subscr': `${product.subtitle}`,
+              'quantity': 1,
+              'price': `${product.price}` * 1,
+              'img': `${product.src}`
+            };
+            localStorage.setItem("order", JSON.stringify(order));
+            order = JSON.parse(localStorage.getItem("order"));
+            Object(_createModalOrder__WEBPACK_IMPORTED_MODULE_1__["default"])('.modal-item', '.modal-order', '.modal-order__content', '.modal-order__wrap', '.modal-order__close', '.form__order');
+            btnCartMain.style.display = "block";
+          }
+        }).catch(error => Object(_modalNotice__WEBPACK_IMPORTED_MODULE_3__["default"])('.modal-order', '[data-err = "err"]'));
+      } else if (target.classList.contains('btn-cart')) {
+        // console.log(target);
+        Object(_createModalOrder__WEBPACK_IMPORTED_MODULE_1__["default"])('.modal-item', '.modal-order', '.modal-order__content', '.modal-order__wrap', '.modal-order__close', '.form__order');
       }
     });
-  }
-
-  openModal('.item-card__wrap', 'data-id');
-  openModal('.modal-item', 'data-btn');
+  });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (modals);
+/* harmony default export */ __webpack_exports__["default"] = (openModal);
+
+/***/ }),
+
+/***/ "./src/js/services/services.js":
+/*!*************************************!*\
+  !*** ./src/js/services/services.js ***!
+  \*************************************/
+/*! exports provided: getProduct, postData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProduct", function() { return getProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postData", function() { return postData; });
+const getProduct = async url => {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+  }
+
+  return await res.json();
+};
+
+const postData = async (url, data) => {
+  let res = await fetch(url, {
+    method: "POST",
+    body: data
+  });
+  return await res.text();
+};
+
+
+
 
 /***/ })
 

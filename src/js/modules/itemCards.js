@@ -15,7 +15,7 @@ const itemCards = () => {
     .catch(error => modalThanks('.modal-order','[data-err = "err"]'));
 
   function createItemCard(response) {
-    console.log(response);
+    // console.log(response);
     response.forEach((item) => {
       const divItemCard = document.createElement('div');
       divItemCard.classList.add('item-card');

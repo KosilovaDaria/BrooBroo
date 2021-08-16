@@ -1,5 +1,5 @@
 <?php
-echo var_dump($_POST);
+// echo var_dump($_POST);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -22,7 +22,6 @@ if(isset($_POST) && !empty($_POST)){
   
     
   $sendOrder = "<p><b>Ура! Новый заказ:</b></p><p><b>Имя: </b> ".$fio."</p><p><b>Email: </b> ".$email."</p><p><b>Телефон: </b>".$phone."</p><p><b>Игрушка: </b> ".$toy."</p><p><b>Комплектация: </b> ".$subscr."</p><p><b>Цена: </b> ".$price."</p><p><b>Количество: </b> ".$quantity." шт.</p>";
-  // $yourOrder = "<p><b>Вы заказали:</b></p><p><b>".$toy."</b></p><p><b>".$subscr."</b></p><p><b>Стоимость:</b> ".$price." рублей</p>";
   $sendQustn = "<p><b>Новый вопрос с BrooBrooToys</b></p><p><b>От: </b> ".$fio."</p><p><b>Email: </b> ".$email."</p><p><b>Телефон: </b>".$phone."</p><p><b>Вопрос: </b> ".$text."</p>";
 
   $mail->CharSet = 'utf-8';
@@ -43,13 +42,6 @@ if(isset($_POST) && !empty($_POST)){
   $mail->Subject = 'Новый заказ в магазине BrooBrooToys';
   $mail->Body    = $sendOrder;
   $mail->AltBody = $sendOrder;
-
-  // if($mail && $mail->addAddress('dd.kosilova@mail.ru')) {
-  //   $mail->isHTML(true);                                  // Set email format to HTML
-  //   $mail->Subject = 'Ваш заказ в магазине BrooBrooToys';
-  //   $mail->Body    = $yourOrder;
-  //   $mail->AltBody = $yourOrder;
-  // }
 
   if($text) {
     $mail->isHTML(true);                                  // Set email format to HTML

@@ -26,7 +26,7 @@ const forms = () => {
           formData.append(key, order[key]);
         }
       }
-      console.log(formData);
+      // console.log(formData);
       
       
       postData('assets/server.php', formData) 
